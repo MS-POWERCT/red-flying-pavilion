@@ -192,7 +192,7 @@
       '<div class="story-quote">' + escapeHtml(a.intro) + "</div>" +
       "<div>" + story + "</div></div></section>" +
       '<section class="section section-alt"><div class="wrap">' +
-      '<div class="section-head"><h2>走过的路</h2><p>' + escapeHtml(a.masterName) + " 的二十年</p></div>" +
+      '<div class="section-head"><h2>走过的路</h2><p>' + escapeHtml(a.masterName) + " 的三十年</p></div>" +
       '<ol class="timeline">' + timeline + "</ol></div></section>" +
       '<section class="section philosophy"><div class="wrap">' +
       "<h2>" + escapeHtml(a.philosophy.title) + "</h2>" + ph +
