@@ -205,6 +205,23 @@
       "size": "1.5m / 1.8m / 可按需定制",
       "cycle": "7-12天",
       "desc": "床头略作雕花，不繁不简，适合喜欢中式味道的家里。"
+    },
+    {
+      "id": "chayan-cabinet",
+      "name": "茶颜边柜",
+      "category": "cabinet",
+      "featured": false,
+      "images": [
+        "images/products/cabinet-chayan.jpeg",
+        "images/products/cabinet-chayan-detail1.jpeg",
+        "images/products/cabinet-chayan-detail2.jpeg",
+        "images/products/cabinet-chayan-detail3.jpeg",
+        "images/products/cabinet-chayan-detail4.jpeg"
+      ],
+      "woods": ["北美黑胡桃", "樱桃木", "红橡", "白蜡木"],
+      "size": "约 60×40×190cm / 可按需定制",
+      "cycle": "10-15天",
+      "desc": "上玻下抽，柜内可做层板灯。木蜡油配黑胡桃，纹理自然、结构稳。适合客厅靠墙放书、酒具或茶器。"
     }
   ],
   "customPage": {
@@ -315,9 +332,10 @@
     { "src": "images/workshop/carving.svg", "alt": "雕刻过程", "category": "work", "caption": "雕刻过程" },
     { "src": "images/workshop/operating.svg", "alt": "师傅操作机器", "category": "work", "caption": "师傅操作机器" },
     { "src": "images/workshop/sanding.svg", "alt": "打磨上漆", "category": "work", "caption": "打磨上漆" },
-    { "src": "images/workshop/walnut-stack.svg", "alt": "胡桃木堆料", "category": "wood", "caption": "胡桃木堆料" },
-    { "src": "images/workshop/beech-board.svg", "alt": "山毛榉板材", "category": "wood", "caption": "山毛榉板材" },
-    { "src": "images/workshop/oak-grain.svg", "alt": "橡木纹理", "category": "wood", "caption": "橡木纹理" },
+    { "src": "images/workshop/wood-compare.jpeg", "alt": "四种实木对比", "category": "wood", "caption": "黑胡桃 · 樱桃木 · 红橡 · 白蜡木" },
+    { "src": "images/workshop/wood-cherry.jpeg", "alt": "樱桃木", "category": "wood", "caption": "樱桃木：温润细腻，越用越有颜色" },
+    { "src": "images/workshop/wood-red-oak.jpeg", "alt": "红橡木", "category": "wood", "caption": "红橡木：纹路较粗，性价比高" },
+    { "src": "images/workshop/wood-ash.jpeg", "alt": "白蜡木", "category": "wood", "caption": "白蜡木：纹路大、颜色浅，性价比高" },
     { "src": "images/workshop/finished-bed.svg", "alt": "待发货实木床", "category": "finished", "caption": "待发货实木床" },
     { "src": "images/workshop/finished-cabinet.svg", "alt": "待发货柜子", "category": "finished", "caption": "待发货柜子" }
   ],
