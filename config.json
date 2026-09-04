@@ -1,0 +1,324 @@
+{
+  "site": {
+    "name": "红飞阁木业",
+    "subtitle": "30年实木定制老手艺",
+    "logo": "images/logo.svg",
+    "footer": "© 2026 红飞阁木业 · 专注实木定制30年",
+    "description": "30年老师傅手工打造实木家具，来图定制床、沙发、柜子。胡桃木、山毛榉、橡木等多种实木可选。"
+  },
+  "nav": [
+    { "label": "首页", "href": "index.html" },
+    { "label": "关于我们", "href": "about.html" },
+    { "label": "产品展示", "href": "products.html" },
+    { "label": "定制服务", "href": "custom.html" },
+    { "label": "工厂实拍", "href": "workshop.html" },
+    { "label": "联系我们", "href": "contact.html" }
+  ],
+  "hero": {
+    "title": "匠心实木，为您定制",
+    "subtitle": "30年老师傅手工打造，让每一件家具都有温度",
+    "bgImage": "images/hero/hero-bg.svg",
+    "ctaText": "立即咨询定制",
+    "ctaLink": "contact.html"
+  },
+  "highlights": [
+    {
+      "icon": "experience",
+      "title": "30年经验沉淀",
+      "desc": "从北京到老家，专注实木加工三十余载，服务过上千客户"
+    },
+    {
+      "icon": "custom",
+      "title": "来图即可定制",
+      "desc": "把方案发过来，一对一沟通，独立定制加工，做出你想要的样子"
+    },
+    {
+      "icon": "wood",
+      "title": "多种实木可选",
+      "desc": "胡桃木、山毛榉、橡木、松木等，性价比高，不选贵的只选对的"
+    },
+    {
+      "icon": "machine",
+      "title": "数控精雕工艺",
+      "desc": "四台浮雕数控机器，老师傅亲自编程操作，精雕细琢每一处细节"
+    }
+  ],
+  "homeProducts": {
+    "title": "主打产品",
+    "subtitle": "实木床 · 沙发 · 柜子 · 更多定制"
+  },
+  "homeCta": {
+    "title": "有想法？发方案过来聊聊",
+    "subtitle": "把您想要的家具款式、尺寸、木材发过来，我们帮您实现",
+    "button": "联系我们",
+    "link": "contact.html"
+  },
+  "about": {
+    "title": "关于师傅",
+    "pageTitle": "关于我们",
+    "pageSubtitle": "30年木头生涯，从北京到老家，手艺从没放下",
+    "masterName": "陈师傅",
+    "intro": "我父亲是一位做了30多年木头加工的老师傅，从北京到自己老家，从带领20多人团队的老板到一人一作坊的匠人，变的是地点和规模，不变的是对木头的热爱和对手艺的执着。",
+    "story": [
+      "后来北京开始整治，厂子搬过多次家。2017年左右，他回到老家，在自己老房子里继续做家具，自己购买了一批新机器和木材，一直做到现在。",
+      "虽然规模不如从前，但手艺和态度从来没变。每一件家具都是他亲手把关，从选材到加工到打磨，每一步都用心对待。"
+    ],
+    "timeline": [
+      { "year": "2000年前后", "event": "在福建武夷山开始学徒" },
+      { "year": "2004年前后", "event": "一人独自去南昌发展，埋头苦干了3年" },
+      { "year": "2007年前后", "event": "被老板发掘邀请去北京发展，沉淀了一年后开始自己做老板承接实木浮雕加工生意" },
+      { "year": "2010年前后", "event": "团队发展到20多人，购入共4台浮雕数控机器" },
+      { "year": "2013-2016年", "event": "在北京开设自己的家具厂，开始做实木家具定制加工生意" },
+      { "year": "2015-2017年", "event": "经历多次搬迁，决定回到老家发展" },
+      { "year": "2017年至今", "event": "在老家继续从事实木家具定制，独立经营" }
+    ],
+    "philosophy": {
+      "title": "不做流水线，只做用心活",
+      "paragraphs": [
+        "每一块木头都有它的纹理和脾气，做了三十多年，我父亲拿到一块料子就知道怎么下刀、怎么拼接、怎么打磨。这不是机器能替代的经验，是时间熬出来的手艺。",
+        "我们不追求产量，只追求每一件家具拿得出手、客户满意。"
+      ]
+    }
+  },
+  "productsPage": {
+    "title": "产品展示",
+    "subtitle": "实木床 · 沙发 · 柜子 · 支持来图定制更多品类"
+  },
+  "productCategories": [
+    {
+      "id": "bed",
+      "name": "实木床",
+      "desc": "从简约到新中式，各种风格实木床均可定制。木材可选胡桃木、山毛榉、橡木等，尺寸根据您的需求来。"
+    },
+    {
+      "id": "sofa",
+      "name": "实木沙发",
+      "desc": "客厅的灵魂家具，实木框架搭配布艺或皮质软包，结实耐用，越用越有味道。"
+    },
+    {
+      "id": "cabinet",
+      "name": "实木柜子",
+      "desc": "衣柜、电视柜、餐边柜、书柜，什么样的柜子都能做，内部结构按您的生活习惯来设计。"
+    },
+    {
+      "id": "more",
+      "name": "更多定制",
+      "desc": "餐桌、椅子、茶几、床头柜、书架……只要是木头的，把方案发过来就能做。"
+    }
+  ],
+  "products": [
+    {
+      "id": "walnut-bed",
+      "name": "胡桃木双人床",
+      "category": "bed",
+      "featured": true,
+      "images": ["images/products/bed-walnut.svg", "images/products/bed-walnut-detail.svg"],
+      "woods": ["胡桃木", "山毛榉", "橡木"],
+      "size": "1.5m / 1.8m / 可按需定制",
+      "cycle": "10-15天",
+      "desc": "线条干净，木纹沉稳，卧室里最安稳的那一件。"
+    },
+    {
+      "id": "new-chinese-bed",
+      "name": "新中式实木床",
+      "category": "bed",
+      "featured": true,
+      "images": ["images/products/bed-chinese.svg"],
+      "woods": ["胡桃木", "橡木"],
+      "size": "1.5m / 1.8m / 可按需定制",
+      "cycle": "12-18天",
+      "desc": "床头略作雕花，不繁不简，适合喜欢中式味道的家里。"
+    },
+    {
+      "id": "fabric-sofa",
+      "name": "实木布艺沙发",
+      "category": "sofa",
+      "featured": true,
+      "images": ["images/products/sofa-fabric.svg"],
+      "woods": ["胡桃木", "山毛榉"],
+      "size": "三人位 / 转角 / 可按需定制",
+      "cycle": "12-18天",
+      "desc": "实木框架承重，布艺软包坐着舒服，越用越有味道。"
+    },
+    {
+      "id": "chinese-sofa",
+      "name": "新中式实木沙发",
+      "category": "sofa",
+      "featured": false,
+      "images": ["images/products/sofa-chinese.svg"],
+      "woods": ["胡桃木", "橡木"],
+      "size": "1+2+3 / 可按客厅尺寸定制",
+      "cycle": "15-20天",
+      "desc": "骨架外露，坐垫可拆，客厅里一眼就认得出来。"
+    },
+    {
+      "id": "wardrobe",
+      "name": "实木衣柜",
+      "category": "cabinet",
+      "featured": true,
+      "images": ["images/products/cabinet-wardrobe.svg"],
+      "woods": ["山毛榉", "橡木", "胡桃木"],
+      "size": "两门 / 四门 / 按墙面定制",
+      "cycle": "12-20天",
+      "desc": "内部层板、挂衣区按生活习惯来，不是套模板。"
+    },
+    {
+      "id": "tv-cabinet",
+      "name": "实木电视柜",
+      "category": "cabinet",
+      "featured": false,
+      "images": ["images/products/cabinet-tv.svg"],
+      "woods": ["胡桃木", "橡木", "山毛榉"],
+      "size": "1.8m-2.4m / 可按电视墙定制",
+      "cycle": "8-12天",
+      "desc": "矮柜稳、线藏得住，客厅一眼干净。"
+    },
+    {
+      "id": "dining-table",
+      "name": "实木餐桌",
+      "category": "more",
+      "featured": false,
+      "images": ["images/products/table-dining.svg"],
+      "woods": ["橡木", "胡桃木", "山毛榉"],
+      "size": "1.4m-2.2m / 可配同款椅子",
+      "cycle": "10-15天",
+      "desc": "桌面整板或拼板均可，吃饭的地方就该摸得着木头。"
+    },
+    {
+      "id": "bookshelf",
+      "name": "实木书柜",
+      "category": "more",
+      "featured": false,
+      "images": ["images/products/cabinet-book.svg"],
+      "woods": ["橡木", "山毛榉"],
+      "size": "单列 / 整墙定制",
+      "cycle": "10-18天",
+      "desc": "层高按书和物件来，也能做成带玻璃门的展示柜。"
+    }
+  ],
+  "customPage": {
+    "title": "定制服务",
+    "subtitle": "把您的想法变成手里的家具，就这么简单"
+  },
+  "customProcess": [
+    {
+      "step": 1,
+      "title": "提交方案",
+      "desc": "把您想要的家具款式、尺寸、木材、参考图片发给我们（微信/电话均可）"
+    },
+    {
+      "step": 2,
+      "title": "沟通确认",
+      "desc": "师傅根据方案给出建议，沟通细节，确认最终设计和报价"
+    },
+    {
+      "step": 3,
+      "title": "选材开工",
+      "desc": "精选实木材料，开始下料、加工、雕刻"
+    },
+    {
+      "step": 4,
+      "title": "打磨上漆",
+      "desc": "多次打磨，环保木蜡油/清漆处理，保留木材天然质感"
+    },
+    {
+      "step": 5,
+      "title": "验货发货",
+      "desc": "成品拍照确认，精心打包，物流发货到家"
+    }
+  ],
+  "woods": [
+    {
+      "name": "胡桃木",
+      "trait": "纹理细腻优雅，稳定性好，不易变形",
+      "color": "深褐色带紫",
+      "hardness": "中高",
+      "price": "中高",
+      "scene": "床、沙发、餐桌"
+    },
+    {
+      "name": "山毛榉",
+      "trait": "纹理均匀，质地坚硬，性价比高",
+      "color": "浅黄到浅红褐",
+      "hardness": "高",
+      "price": "中等",
+      "scene": "床、柜子、椅子"
+    },
+    {
+      "name": "橡木",
+      "trait": "纹理粗犷有力，耐磨损，厚重感强",
+      "color": "浅黄褐",
+      "hardness": "中高",
+      "price": "中等",
+      "scene": "餐桌、书柜、地板"
+    },
+    {
+      "name": "松木",
+      "trait": "纹理自然，质地软，有天然松香味",
+      "color": "浅黄白",
+      "hardness": "低",
+      "price": "实惠",
+      "scene": "儿童家具、辅料"
+    }
+  ],
+  "woodsNote": "以上价格为大致参考，实际价格根据木材市场行情和具体尺寸而定。我们不追求用最贵的木材，而是推荐最适合您需求和预算的木材。",
+  "faq": [
+    {
+      "q": "定制一件家具大概要多久？",
+      "a": "根据复杂程度和订单排期，一般7-15天。具体时间在沟通方案时会明确告知。"
+    },
+    {
+      "q": "可以完全按照我发的图片来做吗？",
+      "a": "可以的，把图片和尺寸要求发过来，师傅会评估可行性并给出建议。"
+    },
+    {
+      "q": "木材是我自己买还是你们包？",
+      "a": "我们包工包料，木材由师傅亲自挑选，确保品质。您也可以指定木材品种。"
+    },
+    {
+      "q": "怎么发货？运费怎么算？",
+      "a": "通过物流发货，全国可达。运费根据距离和家具尺寸按实收取，发货前会告知。"
+    },
+    {
+      "q": "如果收到货不满意怎么办？",
+      "a": "发货前会拍照给您确认，安装使用过程中有任何问题都可以联系我们沟通解决。"
+    }
+  ],
+  "workshopPage": {
+    "title": "工厂实拍",
+    "subtitle": "真实的加工环境，看得见的手艺",
+    "closing": "不搞花里胡哨的展厅，这就是真实的工作环境。每一件家具都是从这里做出来的，每一刀都是实打实的功夫。"
+  },
+  "galleryCategories": [
+    { "id": "machine", "name": "机器设备" },
+    { "id": "work", "name": "工作场景" },
+    { "id": "wood", "name": "木材原料" },
+    { "id": "finished", "name": "成品展示" }
+  ],
+  "gallery": [
+    { "src": "images/workshop/cnc.svg", "alt": "数控雕刻机", "category": "machine", "caption": "数控雕刻机" },
+    { "src": "images/workshop/tablesaw.svg", "alt": "台锯", "category": "machine", "caption": "台锯" },
+    { "src": "images/workshop/planer.svg", "alt": "压刨", "category": "machine", "caption": "压刨" },
+    { "src": "images/workshop/sander.svg", "alt": "砂光机", "category": "machine", "caption": "砂光机" },
+    { "src": "images/workshop/cutting.svg", "alt": "木料切割", "category": "work", "caption": "木料切割" },
+    { "src": "images/workshop/carving.svg", "alt": "雕刻过程", "category": "work", "caption": "雕刻过程" },
+    { "src": "images/workshop/operating.svg", "alt": "师傅操作机器", "category": "work", "caption": "师傅操作机器" },
+    { "src": "images/workshop/sanding.svg", "alt": "打磨上漆", "category": "work", "caption": "打磨上漆" },
+    { "src": "images/workshop/walnut-stack.svg", "alt": "胡桃木堆料", "category": "wood", "caption": "胡桃木堆料" },
+    { "src": "images/workshop/beech-board.svg", "alt": "山毛榉板材", "category": "wood", "caption": "山毛榉板材" },
+    { "src": "images/workshop/oak-grain.svg", "alt": "橡木纹理", "category": "wood", "caption": "橡木纹理" },
+    { "src": "images/workshop/finished-bed.svg", "alt": "待发货实木床", "category": "finished", "caption": "待发货实木床" },
+    { "src": "images/workshop/finished-cabinet.svg", "alt": "待发货柜子", "category": "finished", "caption": "待发货柜子" }
+  ],
+  "contact": {
+    "pageTitle": "联系我们",
+    "pageSubtitle": "有想法？随时联系，把方案发过来聊聊",
+    "phone": "17779323886",
+    "phoneHref": "tel:17779323886",
+    "wechat": "abc17779323886",
+    "wechatQr": "images/contact/wechat-qr.svg",
+    "address": "江西省上饶市广丰县桐畈镇下社村石塔底2号",
+    "hours": "每天 7:00 - 20:00（来之前最好电话联系）",
+    "closing": "不只是卖家具，更想交个朋友。哪怕不买，聊聊木头、聊聊家具，也欢迎。"
+  }
+}
