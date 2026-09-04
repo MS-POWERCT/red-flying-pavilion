@@ -173,7 +173,8 @@
   }
 
   function renderHome(cfg) {
-    var featured = cfg.products.filter(function (p) { return p.featured; }).slice(0, 4);
+    var homeLimit = 3;
+    var featured = cfg.products.filter(function (p) { return p.featured; }).slice(0, homeLimit);
     var highlights = cfg.highlights
       .map(function (h) {
         return (

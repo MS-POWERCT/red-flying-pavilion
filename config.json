@@ -110,6 +110,35 @@
   ],
   "products": [
     {
+      "id": "full-custom",
+      "name": "全屋实木定制",
+      "category": "more",
+      "featured": true,
+      "images": [
+        "images/products/custom-01.jpeg",
+        "images/products/custom-02.jpeg",
+        "images/products/custom-03.jpeg",
+        "images/products/custom-04.png",
+        "images/products/custom-05.png",
+        "images/products/custom-detail01.jpeg",
+        "images/products/custom-detail02.jpeg",
+        "images/products/custom-detail03.jpeg",
+        "images/products/custom-detail04.jpeg",
+        "images/products/custom-detail05.jpeg",
+        "images/products/custom-detail06.jpeg",
+        "images/products/custom-detail07.jpeg",
+        "images/products/custom-detail08.jpeg",
+        "images/products/custom-detail09.jpeg",
+        "images/products/custom-detail10.jpeg",
+        "images/products/custom-detail11.jpeg",
+        "images/products/custom-detail12.png"
+      ],
+      "woods": ["北美黑胡桃", "樱桃木", "红橡", "白蜡木"],
+      "size": "沙发 / 床 / 书柜 / 桌子 · 尺寸均可按需定制",
+      "cycle": "8-15天",
+      "desc": "柜子、床、桌子、沙发都能做。北美黑胡桃、樱桃木、红橡、白蜡木可选，支持定制尺寸，包邮到家。点开详情可看选材样子、尺寸规则和成品参考。"
+    },
+    {
       "id": "walnut-bed",
       "name": "胡桃木双人床",
       "category": "bed",
@@ -127,10 +156,46 @@
       "desc": "线条干净，木纹沉稳，卧室里最安稳的那一件。"
     },
     {
+      "id": "fabric-sofa",
+      "name": "实木布艺沙发",
+      "category": "sofa",
+      "featured": true,
+      "images": [
+        "images/products/sofa-fabric.jpeg",
+        "images/products/sofa-fabric-detail2.jpeg",
+        "images/products/sofa-fabric-detail3.jpeg",
+        "images/products/sofa-fabric-detail4.jpeg",
+        "images/products/sofa-fabric-detail5.jpeg",
+        "images/products/sofa-fabric-detail6.jpeg"
+      ],
+      "woods": ["胡桃木", "山毛榉"],
+      "size": "三人位 / 转角 / 可按需定制",
+      "cycle": "8-15天",
+      "desc": "实木框架承重，布艺软包坐着舒服，越用越有味道。"
+    },
+    {
+      "id": "moon-vanity",
+      "name": "满月梳妆台",
+      "category": "more",
+      "featured": false,
+      "images": [
+        "images/products/table-vanity.jpeg",
+        "images/products/table-vanity-detail1.jpeg",
+        "images/products/table-vanity-detail2.jpeg",
+        "images/products/table-vanity-detail3.jpeg",
+        "images/products/table-vanity-detail4.jpeg",
+        "images/products/table-vanity-detail5.jpeg"
+      ],
+      "woods": ["北美黑胡桃", "樱桃木", "红橡", "白蜡木"],
+      "size": "约 120×45cm / 可按需定制",
+      "cycle": "7-12天",
+      "desc": "圆弧倒角，手工打磨。一侧木腿、一侧双抽屉配金属脚，抽屉有悬浮感，可配同款凳子，卧室梳妆或当书桌都行。"
+    },
+    {
       "id": "new-chinese-bed",
       "name": "新中式实木床",
       "category": "bed",
-      "featured": true,
+      "featured": false,
       "images": [
       "images/products/bed-chinese.jpeg",
       "images/products/bed-chinese-detail1.jpeg",
@@ -140,72 +205,6 @@
       "size": "1.5m / 1.8m / 可按需定制",
       "cycle": "7-12天",
       "desc": "床头略作雕花，不繁不简，适合喜欢中式味道的家里。"
-    },
-    {
-      "id": "fabric-sofa",
-      "name": "实木布艺沙发",
-      "category": "sofa",
-      "featured": true,
-      "images": ["images/products/sofa-fabric.svg"],
-      "woods": ["胡桃木", "山毛榉"],
-      "size": "三人位 / 转角 / 可按需定制",
-      "cycle": "12-18天",
-      "desc": "实木框架承重，布艺软包坐着舒服，越用越有味道。"
-    },
-    {
-      "id": "chinese-sofa",
-      "name": "新中式实木沙发",
-      "category": "sofa",
-      "featured": false,
-      "images": ["images/products/sofa-chinese.svg"],
-      "woods": ["胡桃木", "橡木"],
-      "size": "1+2+3 / 可按客厅尺寸定制",
-      "cycle": "15-20天",
-      "desc": "骨架外露，坐垫可拆，客厅里一眼就认得出来。"
-    },
-    {
-      "id": "wardrobe",
-      "name": "实木衣柜",
-      "category": "cabinet",
-      "featured": true,
-      "images": ["images/products/cabinet-wardrobe.svg"],
-      "woods": ["山毛榉", "橡木", "胡桃木"],
-      "size": "两门 / 四门 / 按墙面定制",
-      "cycle": "12-20天",
-      "desc": "内部层板、挂衣区按生活习惯来，不是套模板。"
-    },
-    {
-      "id": "tv-cabinet",
-      "name": "实木电视柜",
-      "category": "cabinet",
-      "featured": false,
-      "images": ["images/products/cabinet-tv.svg"],
-      "woods": ["胡桃木", "橡木", "山毛榉"],
-      "size": "1.8m-2.4m / 可按电视墙定制",
-      "cycle": "8-12天",
-      "desc": "矮柜稳、线藏得住，客厅一眼干净。"
-    },
-    {
-      "id": "dining-table",
-      "name": "实木餐桌",
-      "category": "more",
-      "featured": false,
-      "images": ["images/products/table-dining.svg"],
-      "woods": ["橡木", "胡桃木", "山毛榉"],
-      "size": "1.4m-2.2m / 可配同款椅子",
-      "cycle": "10-15天",
-      "desc": "桌面整板或拼板均可，吃饭的地方就该摸得着木头。"
-    },
-    {
-      "id": "bookshelf",
-      "name": "实木书柜",
-      "category": "more",
-      "featured": false,
-      "images": ["images/products/cabinet-book.svg"],
-      "woods": ["橡木", "山毛榉"],
-      "size": "单列 / 整墙定制",
-      "cycle": "10-18天",
-      "desc": "层高按书和物件来，也能做成带玻璃门的展示柜。"
     }
   ],
   "customPage": {
