@@ -18,15 +18,15 @@ python3 -m http.server 8080
 
 常见字段：
 
-| 字段 | 说明 |
-| --- | --- |
-| `site.name` / `site.subtitle` | 品牌名与副标题 |
-| `about.masterName` / `about.story` | 师傅称呼与故事 |
-| `products` | 产品列表（名称、图片、木材、尺寸、周期） |
-| `woods` | 木材对比表 |
-| `gallery` | 工厂实拍 |
-| `contact.phone` / `wechat` / `address` | 联系方式 |
-| `contact.phoneHref` | 如 `tel:17779323886`，手机可直接拨号 |
+| 字段                                   | 说明                                     |
+| -------------------------------------- | ---------------------------------------- |
+| `site.name` / `site.subtitle`          | 品牌名与副标题                           |
+| `about.masterName` / `about.story`     | 师傅称呼与故事                           |
+| `products`                             | 产品列表（名称、图片、木材、尺寸、周期） |
+| `woods`                                | 木材对比表                               |
+| `gallery`                              | 工厂实拍                                 |
+| `contact.phone` / `wechat` / `address` | 联系方式                                 |
+| `contact.phoneHref`                    | 如 `tel:17779323886`，手机可直接拨号     |
 
 ## 换图片
 
