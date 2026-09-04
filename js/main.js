@@ -58,6 +58,10 @@
       "</div>";
   }
 
+  function companyOf(cfg) {
+    return cfg.company || {};
+  }
+
   function renderFooter(cfg) {
     var nav = cfg.nav
       .map(function (item) {
@@ -65,18 +69,44 @@
       })
       .join("");
     var c = cfg.contact;
+    var co = companyOf(cfg);
+    var companyLines = "";
+
+    if (co.legalName) {
+      companyLines += "<span>名称：" + escapeHtml(co.legalName) + "</span>";
+    }
+    if (co.creditCode) {
+      companyLines += "<span>统一社会信用代码：" + escapeHtml(co.creditCode) + "</span>";
+    }
+    if (co.operator) {
+      companyLines += "<span>经营者：" + escapeHtml(co.operator) + "</span>";
+    }
+    companyLines += '<a href="about.html#license">' + escapeHtml(co.licenseCaption || "营业执照") + "</a>";
+
+    var copyBits = '<span>' + escapeHtml(cfg.site.footer) + "</span>";
+    if (co.icp) {
+      copyBits +=
+        '<a href="' +
+        escapeHtml(co.icpHref || "https://beian.miit.gov.cn/") +
+        '" target="_blank" rel="noopener">' +
+        escapeHtml(co.icp) +
+        "</a>";
+    }
+    copyBits += '<a href="about.html#license">' + escapeHtml(co.licenseCaption || "营业执照") + "</a>";
 
     $("#site-footer").innerHTML =
       '<div class="wrap">' +
       '<div class="footer-grid">' +
       '<div><div class="brand-name">' + escapeHtml(cfg.site.name) + "</div>" +
-      '<p class="muted" style="color:rgba(255,253,248,.65)">' + escapeHtml(cfg.site.subtitle) + "</p></div>" +
+      '<p class="muted footer-sub">' + escapeHtml(cfg.site.subtitle) + "</p></div>" +
       '<div><h3>页面</h3><div class="footer-nav">' + nav + "</div></div>" +
       "<div><h3>联系</h3><div class=\"footer-contact\">" +
       "<span>电话：" + escapeHtml(c.phone) + "</span>" +
       "<span>微信：" + escapeHtml(c.wechat) + "</span>" +
-      "<span>" + escapeHtml(c.address) + "</span></div></div></div>" +
-      '<div class="copy">' + escapeHtml(cfg.site.footer) + "</div></div>";
+      "<span>" + escapeHtml(c.address) + "</span></div></div>" +
+      "<div><h3>公司信息</h3><div class=\"footer-contact\">" + companyLines + "</div></div>" +
+      "</div>" +
+      '<div class="copy">' + copyBits + "</div></div>";
   }
 
   function telHref(c, fallback) {
@@ -131,10 +161,13 @@
       "<p>定制周期：" + escapeHtml(p.cycle) + "</p>" +
       '<p><a class="btn" href="contact.html">咨询这件定制</a></p>'
     );
-    $all(".detail-images img").forEach(function (img) {
+    var gallery = p.images.map(function (src) {
+      return { src: src, alt: p.name };
+    });
+    $all(".detail-images img").forEach(function (img, i) {
       img.addEventListener("click", function (e) {
         e.stopPropagation();
-        openLightbox(img.getAttribute("data-full"), img.alt);
+        openLightbox(gallery, i);
       });
     });
   }
@@ -185,6 +218,27 @@
       .join("");
     var ph = a.philosophy.paragraphs.map(function (p) { return "<p>" + escapeHtml(p) + "</p>"; }).join("");
 
+    var co = companyOf(cfg);
+    var rows = "";
+    if (co.legalName) {
+      rows += '<li><span class="label">名称</span>' + escapeHtml(co.legalName) + "</li>";
+    }
+    if (co.creditCode) {
+      rows += '<li><span class="label">统一社会信用代码</span>' + escapeHtml(co.creditCode) + "</li>";
+    }
+    if (co.operator) {
+      rows += '<li><span class="label">经营者</span>' + escapeHtml(co.operator) + "</li>";
+    }
+    rows += '<li><span class="label">地址</span>' + escapeHtml(cfg.contact.address) + "</li>";
+
+    var license = "";
+    if (co.licenseImage) {
+      license =
+        '<figure class="license-card" data-full="' + escapeHtml(co.licenseImage) + '">' +
+        '<img src="' + escapeHtml(co.licenseImage) + '" alt="' + escapeHtml(co.licenseCaption || "营业执照") + '">' +
+        "<figcaption>点击查看大图 · " + escapeHtml(co.licenseCaption || "营业执照") + "</figcaption></figure>";
+    }
+
     $("#main").innerHTML =
       '<section class="page-hero"><div class="wrap"><p class="eyebrow">ABOUT</p>' +
       "<h1>" + escapeHtml(a.pageTitle) + "</h1><p class=\"muted\">" + escapeHtml(a.pageSubtitle) + "</p></div></section>" +
@@ -196,7 +250,25 @@
       '<ol class="timeline">' + timeline + "</ol></div></section>" +
       '<section class="section philosophy"><div class="wrap">' +
       "<h2>" + escapeHtml(a.philosophy.title) + "</h2>" + ph +
-      "</div></section>";
+      "</div></section>" +
+      '<section class="section section-alt" id="license"><div class="wrap">' +
+      '<div class="section-head"><h2>' + escapeHtml(co.licenseCaption || "营业执照") + "</h2>" +
+      "<p>" + escapeHtml(co.pageSubtitle || "依法经营，证照可查") + "</p></div>" +
+      '<div class="legal-grid">' +
+      '<div class="contact-card"><ul class="contact-list">' + rows + "</ul>" +
+      (co.note ? '<p class="muted">' + escapeHtml(co.note) + "</p>" : "") +
+      "</div>" + license + "</div></div></section>";
+
+    var fig = $(".license-card");
+    if (fig) {
+      fig.addEventListener("click", function () {
+        openLightbox([{ src: fig.getAttribute("data-full"), alt: co.licenseCaption || "营业执照" }], 0);
+      });
+    }
+    if (location.hash === "#license") {
+      var block = $("#license");
+      if (block) block.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
   }
 
   function renderProducts(cfg) {
@@ -341,7 +413,7 @@
 
     $all(".gallery-item").forEach(function (fig) {
       fig.addEventListener("click", function () {
-        openLightbox(fig.getAttribute("data-full"), $("img", fig).alt);
+        openLightbox([{ src: fig.getAttribute("data-full"), alt: $("img", fig).alt }], 0);
       });
     });
 
@@ -395,17 +467,73 @@
       if (e.target === el) closeOverlay();
     });
     $(".close", el).addEventListener("click", closeOverlay);
-    document.addEventListener("keydown", function (e) {
-      if (e.key === "Escape") closeOverlay();
+    return el;
+  }
+
+  var lightbox = { items: [], index: 0 };
+
+  function ensureLightbox() {
+    var el = $("#lightbox");
+    if (el) return el;
+    el = document.createElement("div");
+    el.id = "lightbox";
+    el.className = "lightbox";
+    el.innerHTML =
+      '<button class="close" type="button" aria-label="关闭">×</button>' +
+      '<button class="lb-nav lb-prev" type="button" aria-label="上一张">‹</button>' +
+      '<button class="lb-nav lb-next" type="button" aria-label="下一张">›</button>' +
+      '<div class="lightbox-body"></div>' +
+      '<p class="lightbox-count"></p>';
+    document.body.appendChild(el);
+    el.addEventListener("click", function (e) {
+      if (e.target === el || e.target.classList.contains("lightbox-body")) closeLightbox();
+    });
+    $(".close", el).addEventListener("click", function (e) {
+      e.stopPropagation();
+      closeLightbox();
+    });
+    $(".lb-prev", el).addEventListener("click", function (e) {
+      e.stopPropagation();
+      stepLightbox(-1);
+    });
+    $(".lb-next", el).addEventListener("click", function (e) {
+      e.stopPropagation();
+      stepLightbox(1);
     });
     return el;
   }
 
-  function openLightbox(src, alt) {
-    var el = ensureOverlay();
-    $(".overlay-body", el).innerHTML = '<img src="' + escapeHtml(src) + '" alt="' + escapeHtml(alt || "") + '">';
+  function isLightboxOpen() {
+    var el = $("#lightbox");
+    return !!(el && el.classList.contains("is-open"));
+  }
+
+  function renderLightbox() {
+    var el = ensureLightbox();
+    var items = lightbox.items;
+    var item = items[lightbox.index] || { src: "", alt: "" };
+    $(".lightbox-body", el).innerHTML = '<img src="' + escapeHtml(item.src) + '" alt="' + escapeHtml(item.alt || "") + '">';
+    $(".lightbox-count", el).textContent = items.length > 1 ? lightbox.index + 1 + " / " + items.length : "";
+    el.classList.toggle("has-nav", items.length > 1);
     el.classList.add("is-open");
-    document.body.style.overflow = "hidden";
+  }
+
+  function openLightbox(items, index) {
+    lightbox.items = items || [];
+    lightbox.index = index || 0;
+    renderLightbox();
+  }
+
+  function stepLightbox(dir) {
+    var n = lightbox.items.length;
+    if (n < 2) return;
+    lightbox.index = (lightbox.index + dir + n) % n;
+    renderLightbox();
+  }
+
+  function closeLightbox() {
+    var el = $("#lightbox");
+    if (el) el.classList.remove("is-open");
   }
 
   function openPanel(html) {
@@ -438,6 +566,17 @@
     if (document.documentElement.getAttribute("data-chrome-bound")) return;
     document.documentElement.setAttribute("data-chrome-bound", "1");
 
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape") {
+        if (isLightboxOpen()) closeLightbox();
+        else closeOverlay();
+        return;
+      }
+      if (!isLightboxOpen()) return;
+      if (e.key === "ArrowLeft") stepLightbox(-1);
+      if (e.key === "ArrowRight") stepLightbox(1);
+    });
+
     document.addEventListener("click", function (e) {
       var t = e.target.closest ? e.target.closest("[data-wechat]") : null;
       if (!t) return;
@@ -461,7 +600,8 @@
       products: cfg.productsPage.title + " · " + cfg.site.name,
       custom: cfg.customPage.title + " · " + cfg.site.name,
       workshop: cfg.workshopPage.title + " · " + cfg.site.name,
-      contact: cfg.contact.pageTitle + " · " + cfg.site.name
+      contact: cfg.contact.pageTitle + " · " + cfg.site.name,
+      notfound: "页面不存在 · " + cfg.site.name
     };
     if (titles[state.page]) document.title = titles[state.page];
   }
@@ -486,7 +626,7 @@
       renderFooter(cfg);
       renderMobileBar(cfg);
       applySeo(cfg);
-      (pages[state.page] || renderHome)(cfg);
+      if (pages[state.page]) pages[state.page](cfg);
       bindChrome();
     })
     .catch(function () {

@@ -367,16 +367,16 @@ body.nav-open .menu-toggle span::after { top: 0; transform: rotate(-45deg); }
   flex-direction: column;
   text-align: left;
   cursor: pointer;
-  transition: transform 0.2s, box-shadow 0.2s;
+  transition: box-shadow 0.2s, border-color 0.2s;
 }
 
 .product-card:hover {
-  transform: translateY(-3px);
   box-shadow: var(--shadow-lg);
+  border-color: var(--line-strong);
 }
 
 .product-card .thumb {
-  aspect-ratio: 4 / 3;
+  aspect-ratio: 1 / 1;
   background: var(--bg-alt);
   overflow: hidden;
 }
@@ -384,7 +384,9 @@ body.nav-open .menu-toggle span::after { top: 0; transform: rotate(-45deg); }
 .product-card .thumb img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
+  object-position: center;
+  image-rendering: auto;
 }
 
 .product-card .body {
@@ -726,7 +728,7 @@ table.woods tr:last-child td { border-bottom: 0; }
 
 .footer-grid {
   display: grid;
-  grid-template-columns: 1.4fr 1fr 1fr;
+  grid-template-columns: 1.3fr 0.9fr 1.1fr 1.2fr;
   gap: 32px;
   margin-bottom: 28px;
 }
@@ -737,6 +739,10 @@ table.woods tr:last-child td { border-bottom: 0; }
   color: #fffdf8;
   font-size: 16px;
   margin-bottom: 12px;
+}
+
+.footer-sub {
+  color: rgba(255, 253, 248, 0.65);
 }
 
 .footer-nav,
@@ -750,6 +756,80 @@ table.woods tr:last-child td { border-bottom: 0; }
   border-top: 1px solid rgba(255, 253, 248, 0.1);
   padding-top: 18px;
   font-size: 13px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 20px;
+  align-items: center;
+}
+
+.copy a {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.legal-grid {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 28px;
+  align-items: start;
+}
+
+#license {
+  scroll-margin-top: calc(var(--header-h) + 12px);
+}
+
+.license-card {
+  margin: 0;
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid var(--line);
+  background: var(--paper);
+  cursor: zoom-in;
+  box-shadow: var(--shadow);
+}
+
+.license-card img {
+  width: 100%;
+  background: #fff;
+}
+
+.license-card figcaption {
+  padding: 12px 16px 16px;
+  font-size: 14px;
+  color: var(--ink-muted);
+}
+
+.notfound {
+  min-height: calc(100vh - var(--header-h) - 220px);
+  display: flex;
+  align-items: center;
+  text-align: center;
+  padding: 72px 0 96px;
+}
+
+.notfound-mark {
+  font-family: var(--font-serif);
+  font-size: clamp(40px, 8vw, 72px);
+  color: var(--wood);
+  margin: 8px 0 12px;
+  letter-spacing: 0.12em;
+}
+
+.notfound h1 {
+  font-size: clamp(24px, 4vw, 36px);
+  margin-bottom: 12px;
+}
+
+.notfound .muted {
+  max-width: 520px;
+  margin: 0 auto 28px;
+}
+
+.notfound-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
 }
 
 /* Mobile bar */
@@ -796,6 +876,72 @@ table.woods tr:last-child td { border-bottom: 0; }
   max-width: min(960px, 100%);
   max-height: 82vh;
   border-radius: 8px;
+}
+
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 70;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 56px 72px 48px;
+  background: rgba(20, 10, 6, 0.88);
+}
+
+.lightbox.is-open { display: flex; }
+
+.lightbox img {
+  max-width: min(1100px, 100%);
+  max-height: 84vh;
+  object-fit: contain;
+  border-radius: 8px;
+}
+
+.lightbox .close {
+  position: absolute;
+  top: 16px;
+  right: 18px;
+  width: 40px;
+  height: 40px;
+  border: 0;
+  border-radius: 50%;
+  background: rgba(255, 253, 248, 0.92);
+  cursor: pointer;
+  font-size: 22px;
+}
+
+.lb-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 44px;
+  height: 44px;
+  border: 0;
+  border-radius: 50%;
+  background: rgba(255, 253, 248, 0.92);
+  cursor: pointer;
+  font-size: 28px;
+  line-height: 1;
+}
+
+.lb-prev { left: 16px; }
+.lb-next { right: 16px; }
+
+.lightbox:not(.has-nav) .lb-nav,
+.lightbox:not(.has-nav) .lightbox-count {
+  display: none;
+}
+
+.lightbox-count {
+  position: absolute;
+  bottom: 16px;
+  left: 0;
+  right: 0;
+  text-align: center;
+  color: rgba(255, 253, 248, 0.86);
+  font-size: 14px;
+  pointer-events: none;
 }
 
 .overlay .panel {
@@ -866,6 +1012,7 @@ table.woods tr:last-child td { border-bottom: 0; }
 
   .story-grid,
   .contact-grid,
+  .legal-grid,
   .footer-grid {
     grid-template-columns: 1fr;
   }
@@ -934,5 +1081,5 @@ table.woods tr:last-child td { border-bottom: 0; }
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  .btn, .product-card { transition: none; }
+  .btn { transition: none; }
 }

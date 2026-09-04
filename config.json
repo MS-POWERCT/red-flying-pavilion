@@ -17,7 +17,7 @@
   "hero": {
     "title": "匠心实木，为您定制",
     "subtitle": "30年老师傅手工打造，让每一件家具都有温度",
-    "bgImage": "images/hero/hero-bg.svg",
+    "bgImage": "images/hero/hero-bg.png",
     "ctaText": "立即咨询定制",
     "ctaLink": "contact.html"
   },
@@ -114,10 +114,16 @@
       "name": "胡桃木双人床",
       "category": "bed",
       "featured": true,
-      "images": ["images/products/bed-walnut.svg", "images/products/bed-walnut-detail.svg"],
+      "images": [
+      "images/products/bed-walnut.png", 
+      "images/products/bed-walnut-detail1.jpeg", 
+      "images/products/bed-walnut-detail2.jpeg", 
+      "images/products/bed-walnut-detail3.jpeg",
+      "images/products/bed-walnut-detail4.jpeg",
+      "images/products/bed-walnut-detail5.jpeg"],
       "woods": ["胡桃木", "山毛榉", "橡木"],
       "size": "1.5m / 1.8m / 可按需定制",
-      "cycle": "10-15天",
+      "cycle": "7-12天",
       "desc": "线条干净，木纹沉稳，卧室里最安稳的那一件。"
     },
     {
@@ -125,10 +131,14 @@
       "name": "新中式实木床",
       "category": "bed",
       "featured": true,
-      "images": ["images/products/bed-chinese.svg"],
-      "woods": ["胡桃木", "橡木"],
+      "images": [
+      "images/products/bed-chinese.jpeg",
+      "images/products/bed-chinese-detail1.jpeg",
+      "images/products/bed-chinese-detail2.jpeg",
+      "images/products/bed-chinese-detail3.jpeg"],
+      "woods": ["橡木", "胡桃木"],
       "size": "1.5m / 1.8m / 可按需定制",
-      "cycle": "12-18天",
+      "cycle": "7-12天",
       "desc": "床头略作雕花，不繁不简，适合喜欢中式味道的家里。"
     },
     {
@@ -312,6 +322,17 @@
     { "src": "images/workshop/finished-bed.svg", "alt": "待发货实木床", "category": "finished", "caption": "待发货实木床" },
     { "src": "images/workshop/finished-cabinet.svg", "alt": "待发货柜子", "category": "finished", "caption": "待发货柜子" }
   ],
+  "company": {
+    "legalName": "红飞阁木业",
+    "creditCode": "",
+    "operator": "",
+    "pageSubtitle": "依法经营，证照可查",
+    "licenseImage": "images/legal/business-license.svg",
+    "licenseCaption": "营业执照",
+    "note": "如需核验，请点击右侧营业执照查看大图。证照信息以登记机关公示为准。",
+    "icp": "",
+    "icpHref": "https://beian.miit.gov.cn/"
+  },
   "contact": {
     "pageTitle": "联系我们",
     "pageSubtitle": "有想法？随时联系，把方案发过来聊聊",
