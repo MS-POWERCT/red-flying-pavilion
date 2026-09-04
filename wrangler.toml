@@ -1,0 +1,5 @@
+name = "red-flying-pavilion"
+compatibility_date = "2026-09-04"
+
+[assets]
+directory = "./"
