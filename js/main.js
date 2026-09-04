@@ -584,7 +584,7 @@
       e.preventDefault();
       var c = (state.config && state.config.contact) || {
         wechat: "abc17779323886",
-        wechatQr: "images/contact/wechat-qr.svg"
+        wechatQr: "images/contact/wechat-qr.png"
       };
       openPanel(
         '<div class="wechat-box"><h2>微信联系</h2><p>' + escapeHtml(c.wechat) + "</p>" +

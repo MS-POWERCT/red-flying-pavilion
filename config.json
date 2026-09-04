@@ -207,6 +207,25 @@
       "desc": "床头略作雕花，不繁不简，适合喜欢中式味道的家里。"
     },
     {
+      "id": "platform-bed",
+      "name": "无床头实木床",
+      "category": "bed",
+      "featured": false,
+      "images": [
+        "images/products/bed-platform.jpeg",
+        "images/products/bed-platform-detail1.jpeg",
+        "images/products/bed-platform-detail2.jpeg",
+        "images/products/bed-platform-detail3.jpeg",
+        "images/products/bed-platform-detail4.jpeg",
+        "images/products/bed-platform-detail5.jpeg",
+        "images/products/bed-platform-detail6.jpeg"
+      ],
+      "woods": ["北美黑胡桃", "樱桃木"],
+      "size": "1.2m / 1.35m / 1.5m / 1.8m / 2.0m / 2.2m × 2.0m",
+      "cycle": "7-12天",
+      "desc": "无床头，过道更宽，小户型也好摆大床。加密排骨架，铺板可选黑胡桃或樱桃木。床下约15cm，扫地机过得去。"
+    },
+    {
       "id": "chayan-cabinet",
       "name": "茶颜边柜",
       "category": "cabinet",
@@ -356,7 +375,7 @@
     "phone": "17779323886",
     "phoneHref": "tel:17779323886",
     "wechat": "abc17779323886",
-    "wechatQr": "images/contact/wechat-qr.svg",
+    "wechatQr": "images/contact/wechat-qr.png",
     "address": "江西省上饶市广丰县桐畈镇下社村石塔底2号",
     "hours": "每天 7:00 - 20:00（来之前最好电话联系）",
     "closing": "不只是卖家具，更想交个朋友。哪怕不买，聊聊木头、聊聊家具，也欢迎。"

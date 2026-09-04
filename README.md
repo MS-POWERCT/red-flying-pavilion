@@ -34,7 +34,7 @@ python3 -m http.server 8080
 
 - 产品图建议 800×600
 - 首页 Hero 建议 1920×800
-- 微信二维码：替换 `images/contact/wechat-qr.svg`
+- 微信二维码：替换 `images/contact/wechat-qr.png`
 
 联系页只展示电话、微信、地址，没有留言表单。
 
