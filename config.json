@@ -2,7 +2,7 @@
   "site": {
     "name": "红飞阁木业",
     "subtitle": "30年实木定制老手艺",
-    "logo": "images/logo.svg",
+    "logo": "images/logo.jpeg",
     "footer": "© 2026 红飞阁木业 · 专注实木定制30年",
     "description": "30年老师傅手工打造实木家具，来图定制床、沙发、柜子。胡桃木、山毛榉、橡木等多种实木可选。"
   },
@@ -65,14 +65,38 @@
       "厂子小了，人少了，活却更见人。每一件家具从选材到下料、雕刻、打磨，都是他亲手过眼。他说规模可以缩，手艺不能缩——客户拿到手里，要经得起摸、经得起看。"
     ],
     "timeline": [
-      { "year": "2000年前后", "event": "在福建武夷山拜师学艺，从刨花堆里摸木头的脾气" },
-      { "year": "2003年前后", "event": "勇闯南昌，默默苦干三年，把手艺从学徒活磨成能独当一面的功夫" },
-      { "year": "2006年前后", "event": "被老板看中请去北京；沉淀一年后自立门户，承接实木浮雕加工" },
-      { "year": "2010年前后", "event": "带起二十多人的班子，添置四台浮雕数控机，厂子进入最热闹的几年" },
-      { "year": "2013-2016年", "event": "在北京开出自己的家具厂，从浮雕加工转向实木家具定制" },
-      { "year": "2015-2017年", "event": "几经搬迁，世事推着走，心里渐渐转向回家" },
-      { "year": "2017-2024年", "event": "因生计回到福建工厂，浮雕刀还在转，手艺没有断" },
-      { "year": "2024年至今", "event": "回老家自立开厂，慢工出细活，一件一件用心做家具" }
+      {
+        "year": "2000年前后",
+        "event": "在福建武夷山拜师学艺，从刨花堆里摸木头的脾气"
+      },
+      {
+        "year": "2003年前后",
+        "event": "勇闯南昌，默默苦干三年，把手艺从学徒活磨成能独当一面的功夫"
+      },
+      {
+        "year": "2006年前后",
+        "event": "被老板看中请去北京；沉淀一年后自立门户，承接实木浮雕加工"
+      },
+      {
+        "year": "2010年前后",
+        "event": "带起二十多人的班子，添置四台浮雕数控机，厂子进入最热闹的几年"
+      },
+      {
+        "year": "2013-2016年",
+        "event": "在北京开出自己的家具厂，从浮雕加工转向实木家具定制"
+      },
+      {
+        "year": "2015-2017年",
+        "event": "几经搬迁，世事推着走，心里渐渐转向回家"
+      },
+      {
+        "year": "2017-2024年",
+        "event": "因生计回到福建工厂，浮雕刀还在转，手艺没有断"
+      },
+      {
+        "year": "2024年至今",
+        "event": "回老家自立开厂，慢工出细活，一件一件用心做家具"
+      }
     ],
     "philosophy": {
       "title": "不做流水线，只做用心活",
@@ -144,12 +168,13 @@
       "category": "bed",
       "featured": true,
       "images": [
-      "images/products/bed-walnut.png", 
-      "images/products/bed-walnut-detail1.jpeg", 
-      "images/products/bed-walnut-detail2.jpeg", 
-      "images/products/bed-walnut-detail3.jpeg",
-      "images/products/bed-walnut-detail4.jpeg",
-      "images/products/bed-walnut-detail5.jpeg"],
+        "images/products/bed-walnut.png",
+        "images/products/bed-walnut-detail1.jpeg",
+        "images/products/bed-walnut-detail2.jpeg",
+        "images/products/bed-walnut-detail3.jpeg",
+        "images/products/bed-walnut-detail4.jpeg",
+        "images/products/bed-walnut-detail5.jpeg"
+      ],
       "woods": ["胡桃木", "山毛榉", "橡木"],
       "size": "1.5m / 1.8m / 可按需定制",
       "cycle": "7-12天",
@@ -197,10 +222,11 @@
       "category": "bed",
       "featured": false,
       "images": [
-      "images/products/bed-chinese.jpeg",
-      "images/products/bed-chinese-detail1.jpeg",
-      "images/products/bed-chinese-detail2.jpeg",
-      "images/products/bed-chinese-detail3.jpeg"],
+        "images/products/bed-chinese.jpeg",
+        "images/products/bed-chinese-detail1.jpeg",
+        "images/products/bed-chinese-detail2.jpeg",
+        "images/products/bed-chinese-detail3.jpeg"
+      ],
       "woods": ["橡木", "胡桃木"],
       "size": "1.5m / 1.8m / 可按需定制",
       "cycle": "7-12天",
@@ -343,20 +369,90 @@
     { "id": "finished", "name": "成品展示" }
   ],
   "gallery": [
-    { "src": "images/workshop/cnc.svg", "alt": "数控雕刻机", "category": "machine", "caption": "数控雕刻机" },
-    { "src": "images/workshop/tablesaw.svg", "alt": "台锯", "category": "machine", "caption": "台锯" },
-    { "src": "images/workshop/planer.svg", "alt": "压刨", "category": "machine", "caption": "压刨" },
-    { "src": "images/workshop/sander.svg", "alt": "砂光机", "category": "machine", "caption": "砂光机" },
-    { "src": "images/workshop/cutting.svg", "alt": "木料切割", "category": "work", "caption": "木料切割" },
-    { "src": "images/workshop/carving.svg", "alt": "雕刻过程", "category": "work", "caption": "雕刻过程" },
-    { "src": "images/workshop/operating.svg", "alt": "师傅操作机器", "category": "work", "caption": "师傅操作机器" },
-    { "src": "images/workshop/sanding.svg", "alt": "打磨上漆", "category": "work", "caption": "打磨上漆" },
-    { "src": "images/workshop/wood-compare.jpeg", "alt": "四种实木对比", "category": "wood", "caption": "黑胡桃 · 樱桃木 · 红橡 · 白蜡木" },
-    { "src": "images/workshop/wood-cherry.jpeg", "alt": "樱桃木", "category": "wood", "caption": "樱桃木：温润细腻，越用越有颜色" },
-    { "src": "images/workshop/wood-red-oak.jpeg", "alt": "红橡木", "category": "wood", "caption": "红橡木：纹路较粗，性价比高" },
-    { "src": "images/workshop/wood-ash.jpeg", "alt": "白蜡木", "category": "wood", "caption": "白蜡木：纹路大、颜色浅，性价比高" },
-    { "src": "images/workshop/finished-bed.svg", "alt": "待发货实木床", "category": "finished", "caption": "待发货实木床" },
-    { "src": "images/workshop/finished-cabinet.svg", "alt": "待发货柜子", "category": "finished", "caption": "待发货柜子" }
+    {
+      "src": "images/workshop/cnc.svg",
+      "alt": "数控雕刻机",
+      "category": "machine",
+      "caption": "数控雕刻机"
+    },
+    {
+      "src": "images/workshop/tablesaw.svg",
+      "alt": "台锯",
+      "category": "machine",
+      "caption": "台锯"
+    },
+    {
+      "src": "images/workshop/planer.svg",
+      "alt": "压刨",
+      "category": "machine",
+      "caption": "压刨"
+    },
+    {
+      "src": "images/workshop/sander.svg",
+      "alt": "砂光机",
+      "category": "machine",
+      "caption": "砂光机"
+    },
+    {
+      "src": "images/workshop/cutting.svg",
+      "alt": "木料切割",
+      "category": "work",
+      "caption": "木料切割"
+    },
+    {
+      "src": "images/workshop/carving.svg",
+      "alt": "雕刻过程",
+      "category": "work",
+      "caption": "雕刻过程"
+    },
+    {
+      "src": "images/workshop/operating.svg",
+      "alt": "师傅操作机器",
+      "category": "work",
+      "caption": "师傅操作机器"
+    },
+    {
+      "src": "images/workshop/sanding.svg",
+      "alt": "打磨上漆",
+      "category": "work",
+      "caption": "打磨上漆"
+    },
+    {
+      "src": "images/workshop/wood-compare.jpeg",
+      "alt": "四种实木对比",
+      "category": "wood",
+      "caption": "黑胡桃 · 樱桃木 · 红橡 · 白蜡木"
+    },
+    {
+      "src": "images/workshop/wood-cherry.jpeg",
+      "alt": "樱桃木",
+      "category": "wood",
+      "caption": "樱桃木：温润细腻，越用越有颜色"
+    },
+    {
+      "src": "images/workshop/wood-red-oak.jpeg",
+      "alt": "红橡木",
+      "category": "wood",
+      "caption": "红橡木：纹路较粗，性价比高"
+    },
+    {
+      "src": "images/workshop/wood-ash.jpeg",
+      "alt": "白蜡木",
+      "category": "wood",
+      "caption": "白蜡木：纹路大、颜色浅，性价比高"
+    },
+    {
+      "src": "images/workshop/finished-bed.svg",
+      "alt": "待发货实木床",
+      "category": "finished",
+      "caption": "待发货实木床"
+    },
+    {
+      "src": "images/workshop/finished-cabinet.svg",
+      "alt": "待发货柜子",
+      "category": "finished",
+      "caption": "待发货柜子"
+    }
   ],
   "company": {
     "legalName": "红飞阁木业",

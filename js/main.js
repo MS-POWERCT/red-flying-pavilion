@@ -616,7 +616,20 @@
     contact: renderContact
   };
 
-  fetch("config.json")
+  function configUrl() {
+    var scripts = document.getElementsByTagName("script");
+    var i;
+    var src;
+    for (i = 0; i < scripts.length; i++) {
+      src = scripts[i].src || "";
+      if (/js\/main\.js(\?|$)/.test(src)) {
+        return src.replace(/js\/main\.js(\?.*)?$/, "config.json");
+      }
+    }
+    return "config.json";
+  }
+
+  fetch(configUrl())
     .then(function (res) {
       if (!res.ok) throw new Error("config");
       return res.json();
