@@ -372,52 +372,58 @@
   ],
   "gallery": [
     {
-      "src": "images/workshop/cnc.svg",
-      "alt": "数控雕刻机",
-      "category": "machine",
-      "caption": "数控雕刻机"
-    },
-    {
-      "src": "images/workshop/tablesaw.svg",
-      "alt": "台锯",
-      "category": "machine",
-      "caption": "台锯"
-    },
-    {
-      "src": "images/workshop/planer.svg",
+      "src": "images/workshop/machine-planer.jpeg",
       "alt": "压刨",
       "category": "machine",
-      "caption": "压刨"
+      "caption": "压刨：刨平定厚"
     },
     {
-      "src": "images/workshop/sander.svg",
-      "alt": "砂光机",
+      "src": "images/workshop/machine-bandsaw.jpeg",
+      "alt": "带锯",
       "category": "machine",
-      "caption": "砂光机"
+      "caption": "带锯"
     },
     {
-      "src": "images/workshop/cutting.svg",
-      "alt": "木料切割",
+      "src": "images/workshop/machine-tablesaw.jpeg",
+      "alt": "推台锯",
+      "category": "machine",
+      "caption": "推台锯：开料裁板"
+    },
+    {
+      "src": "images/workshop/machine-dust.jpeg",
+      "alt": "除尘机",
+      "category": "machine",
+      "caption": "除尘机"
+    },
+    {
+      "src": "images/workshop/machine-grinder.jpeg",
+      "alt": "砂轮机",
+      "category": "machine",
+      "caption": "砂轮机"
+    },
+    {
+      "src": "images/workshop/shop-front.jpeg",
+      "alt": "作坊门口",
       "category": "work",
-      "caption": "木料切割"
+      "caption": "作坊门口"
     },
     {
-      "src": "images/workshop/carving.svg",
-      "alt": "雕刻过程",
+      "src": "images/workshop/work-cutting.jpeg",
+      "alt": "下料工位",
       "category": "work",
-      "caption": "雕刻过程"
+      "caption": "下料工位"
     },
     {
-      "src": "images/workshop/operating.svg",
+      "src": "images/workshop/work-in-progress.jpeg",
+      "alt": "加工现场",
+      "category": "work",
+      "caption": "加工现场"
+    },
+    {
+      "src": "images/workshop/work-operating.jpeg",
       "alt": "师傅操作机器",
       "category": "work",
-      "caption": "师傅操作机器"
-    },
-    {
-      "src": "images/workshop/sanding.svg",
-      "alt": "打磨上漆",
-      "category": "work",
-      "caption": "打磨上漆"
+      "caption": "师傅在平木"
     },
     {
       "src": "images/workshop/wood-compare.jpeg",
@@ -444,16 +450,34 @@
       "caption": "白蜡木：纹路大、颜色浅，性价比高"
     },
     {
-      "src": "images/workshop/finished-bed.svg",
-      "alt": "待发货实木床",
-      "category": "finished",
-      "caption": "待发货实木床"
-    },
-    {
-      "src": "images/workshop/finished-cabinet.svg",
+      "src": "images/workshop/finished-cabinet.jpeg",
       "alt": "待发货柜子",
       "category": "finished",
-      "caption": "待发货柜子"
+      "caption": "成品出货"
+    },
+    {
+      "src": "images/workshop/finished-daybed-set.jpeg",
+      "alt": "实木沙发+靠垫",
+      "category": "finished",
+      "caption": "实木沙发+靠垫"
+    },
+    {
+      "src": "images/workshop/finished-tea-table.jpeg",
+      "alt": "实木茶几",
+      "category": "finished",
+      "caption": "实木茶几"
+    },
+    {
+      "src": "images/workshop/finished-bed.jpeg",
+      "alt": "圆角实木床",
+      "category": "finished",
+      "caption": "圆角实木床"
+    },
+    {
+      "src": "images/workshop/finished-bed-detail.jpeg",
+      "alt": "床架圆角细节",
+      "category": "finished",
+      "caption": "床架圆角细节"
     }
   ],
   "company": {
