@@ -595,16 +595,122 @@
   }
 
   function applySeo(cfg) {
-    var titles = {
-      home: cfg.site.name + " · " + cfg.hero.title,
-      about: cfg.about.pageTitle + " · " + cfg.site.name,
-      products: cfg.productsPage.title + " · " + cfg.site.name,
-      custom: cfg.customPage.title + " · " + cfg.site.name,
-      workshop: cfg.workshopPage.title + " · " + cfg.site.name,
-      contact: cfg.contact.pageTitle + " · " + cfg.site.name,
-      notfound: "页面不存在 · " + cfg.site.name
+    var seoAll = cfg.seo || {};
+    var pageSeo = seoAll[state.page] || {};
+    var name = cfg.site.name;
+    var title = pageSeo.title || (name + " · " + (cfg.site.subtitle || ""));
+    var desc = pageSeo.description || cfg.site.description || "";
+    var image = pageSeo.image || cfg.hero.bgImage || cfg.site.logo;
+    var robots = pageSeo.robots || "index, follow";
+    var keywords = cfg.site.keywords || "";
+    var file = fileName();
+    var absImage = absUrl(cfg, image);
+    var pageUrl = absUrl(cfg, file === "index.html" ? "" : file);
+
+    document.title = title;
+    setMeta("name", "description", desc);
+    setMeta("name", "keywords", keywords);
+    setMeta("name", "author", name);
+    setMeta("name", "robots", robots);
+    setMeta("property", "og:title", title);
+    setMeta("property", "og:description", desc);
+    setMeta("property", "og:type", "website");
+    setMeta("property", "og:locale", "zh_CN");
+    setMeta("property", "og:site_name", name);
+    setMeta("property", "og:image", absImage);
+    setMeta("property", "og:url", pageUrl);
+    setMeta("name", "twitter:card", "summary_large_image");
+    setMeta("name", "twitter:title", title);
+    setMeta("name", "twitter:description", desc);
+    setMeta("name", "twitter:image", absImage);
+    setLinkRel("canonical", pageUrl);
+
+    var store = {
+      "@context": "https://schema.org",
+      "@type": "FurnitureStore",
+      name: name,
+      alternateName: cfg.company && cfg.company.legalName ? cfg.company.legalName : name,
+      description: cfg.site.description,
+      image: absUrl(cfg, cfg.site.logo),
+      telephone: cfg.contact.phone,
+      url: originBase(cfg),
+      address: {
+        "@type": "PostalAddress",
+        streetAddress: cfg.contact.address,
+        addressCountry: "CN"
+      },
+      openingHours: "Mo-Su 07:00-20:00",
+      areaServed: "CN",
+      makesOffer: {
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "Service",
+          name: "实木家具来图定制",
+          description: cfg.customPage.subtitle
+        }
+      }
     };
-    if (titles[state.page]) document.title = titles[state.page];
+    setJsonLd("ld-business", store);
+
+    if (state.page === "custom" && cfg.faq && cfg.faq.length) {
+      setJsonLd("ld-faq", {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        mainEntity: cfg.faq.map(function (item) {
+          return {
+            "@type": "Question",
+            name: item.q,
+            acceptedAnswer: { "@type": "Answer", text: item.a }
+          };
+        })
+      });
+    }
+  }
+
+  function originBase(cfg) {
+    var u = cfg.site && cfg.site.url ? String(cfg.site.url) : "";
+    if (u) return u.replace(/\/$/, "");
+    return location.origin;
+  }
+
+  function absUrl(cfg, path) {
+    if (!path) return originBase(cfg) + "/";
+    if (/^https?:\/\//.test(path)) return path;
+    return originBase(cfg) + "/" + String(path).replace(/^\//, "");
+  }
+
+  function setMeta(attr, key, value) {
+    if (value == null || value === "") return;
+    var sel = attr === "property" ? 'meta[property="' + key + '"]' : 'meta[name="' + key + '"]';
+    var el = $(sel);
+    if (!el) {
+      el = document.createElement("meta");
+      el.setAttribute(attr, key);
+      document.head.appendChild(el);
+    }
+    el.setAttribute("content", value);
+  }
+
+  function setLinkRel(rel, href) {
+    if (!href) return;
+    var el = $('link[rel="' + rel + '"]');
+    if (!el) {
+      el = document.createElement("link");
+      el.setAttribute("rel", rel);
+      document.head.appendChild(el);
+    }
+    el.setAttribute("href", href);
+  }
+
+  function setJsonLd(id, data) {
+    var el = document.getElementById(id);
+    if (!el) {
+      el = document.createElement("script");
+      el.type = "application/ld+json";
+      el.id = id;
+      document.head.appendChild(el);
+    }
+    el.textContent = JSON.stringify(data);
   }
 
   var pages = {

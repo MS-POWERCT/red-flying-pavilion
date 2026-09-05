@@ -4,7 +4,9 @@
     "subtitle": "30年实木定制老手艺",
     "logo": "images/logo.jpeg",
     "footer": "© 2026 红飞阁木业 · 专注实木定制30年",
-    "description": "30年老师傅手工打造实木家具，来图定制床、沙发、柜子。胡桃木、山毛榉、橡木等多种实木可选。"
+    "description": "红飞阁木业，江西上饶广丰实木家具定制。陈师傅30年手艺，来图定制床、沙发、柜子、梳妆台。北美黑胡桃、樱桃木、红橡、白蜡木可选，包工包料，物流发货。",
+    "url": "",
+    "keywords": "红飞阁木业,实木家具定制,来图定制,实木床,无床头实木床,实木沙发,茶颜边柜,满月梳妆台,全屋实木定制,北美黑胡桃,樱桃木,红橡木,白蜡木,上饶广丰家具,陈师傅"
   },
   "nav": [
     { "label": "首页", "href": "index.html" },
@@ -475,5 +477,43 @@
     "address": "江西省上饶市广丰县桐畈镇下社村石塔底2号",
     "hours": "每天 7:00 - 20:00（来之前最好电话联系）",
     "closing": "不只是卖家具，更想交个朋友。哪怕不买，聊聊木头、聊聊家具，也欢迎。"
+  },
+  "seo": {
+    "home": {
+      "title": "红飞阁木业 · 匠心实木，为您定制",
+      "description": "江西上饶广丰实木家具定制。陈师傅30年手艺，来图做床、沙发、柜子、梳妆台。北美黑胡桃、樱桃木、红橡、白蜡木可选，支持定制尺寸。",
+      "image": "images/hero/hero-bg.png"
+    },
+    "about": {
+      "title": "关于我们 · 红飞阁木业",
+      "description": "陈师傅从武夷山学徒到南昌、北京开厂，再回老家一人一作坊。三十多年认料、认刀、认活，手艺从没放下。",
+      "image": "images/hero/hero-bg.png"
+    },
+    "products": {
+      "title": "产品展示 · 红飞阁木业",
+      "description": "全屋实木定制、胡桃木双人床、无床头实木床、实木布艺沙发、满月梳妆台、茶颜边柜。尺寸可按需做，木材可选黑胡桃、樱桃木、红橡、白蜡木。",
+      "image": "images/products/bed-walnut.png"
+    },
+    "custom": {
+      "title": "定制服务 · 红飞阁木业",
+      "description": "来图定制五步：提交方案、沟通确认、选材开工、打磨上漆、验货发货。一般7-15天，包工包料，全国物流可达。",
+      "image": "images/workshop/wood-compare.jpeg"
+    },
+    "workshop": {
+      "title": "工厂实拍 · 红飞阁木业",
+      "description": "真实作坊环境与木材样子：黑胡桃、樱桃木、红橡、白蜡木对比。不搞展厅，看得见的手艺。",
+      "image": "images/workshop/wood-compare.jpeg"
+    },
+    "contact": {
+      "title": "联系我们 · 红飞阁木业",
+      "description": "咨询实木定制：电话 17779323886，微信 abc17779323886。地址江西省上饶市广丰县桐畈镇下社村石塔底2号，每天 7:00-20:00。",
+      "image": "images/hero/hero-bg.png"
+    },
+    "notfound": {
+      "title": "页面不存在 · 红飞阁木业",
+      "description": "页面不存在，请返回红飞阁木业首页查看实木定制或联系师傅。",
+      "image": "images/hero/hero-bg.png",
+      "robots": "noindex, follow"
+    }
   }
 }
