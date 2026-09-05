@@ -324,8 +324,12 @@
 
     var rows = cfg.woods
       .map(function (w) {
+        var thumb = w.image
+          ? '<img class="wood-thumb" src="' + escapeHtml(w.image) + '" alt="' + escapeHtml(w.name) + '">'
+          : "";
         return (
-          "<tr><td>" + escapeHtml(w.name) + "</td><td>" + escapeHtml(w.trait) + "</td><td>" +
+          '<tr><td class="wood-name">' + thumb + "<span>" + escapeHtml(w.name) + "</span></td><td>" +
+          escapeHtml(w.trait) + "</td><td>" +
           escapeHtml(w.color) + "</td><td>" + escapeHtml(w.hardness) + "</td><td>" +
           escapeHtml(w.price) + "</td><td>" + escapeHtml(w.scene) + "</td></tr>"
         );
@@ -334,8 +338,11 @@
 
     var cards = cfg.woods
       .map(function (w) {
+        var thumb = w.image
+          ? '<img class="wood-thumb" src="' + escapeHtml(w.image) + '" alt="' + escapeHtml(w.name) + '">'
+          : "";
         return (
-          '<article class="wood-card"><h3>' + escapeHtml(w.name) + "</h3><dl>" +
+          '<article class="wood-card">' + thumb + "<h3>" + escapeHtml(w.name) + "</h3><dl>" +
           "<dt>特点</dt><dd>" + escapeHtml(w.trait) + "</dd>" +
           "<dt>颜色</dt><dd>" + escapeHtml(w.color) + "</dd>" +
           "<dt>硬度</dt><dd>" + escapeHtml(w.hardness) + "</dd>" +

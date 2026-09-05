@@ -571,6 +571,22 @@ table.woods th {
 
 table.woods tr:last-child td { border-bottom: 0; }
 
+.wood-name {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-weight: 600;
+}
+
+.wood-thumb {
+  width: 64px;
+  height: 48px;
+  object-fit: cover;
+  border-radius: 6px;
+  flex-shrink: 0;
+  background: var(--bg-alt);
+}
+
 .woods-note {
   margin-top: 16px;
   color: var(--ink-muted);
@@ -1064,6 +1080,12 @@ table.woods tr:last-child td { border-bottom: 0; }
     border: 1px solid var(--line);
     border-radius: var(--radius);
     padding: 16px 18px;
+  }
+
+  .wood-card .wood-thumb {
+    width: 100%;
+    height: 140px;
+    margin-bottom: 12px;
   }
 
   .wood-card h3 { margin-bottom: 8px; }

@@ -309,7 +309,8 @@
       "color": "深褐色带紫",
       "hardness": "中高",
       "price": "中高",
-      "scene": "床、沙发、餐桌"
+      "scene": "床、沙发、餐桌",
+      "image": "images/workshop/wood-walnut.jpeg"
     },
     {
       "name": "山毛榉",
@@ -317,7 +318,8 @@
       "color": "浅黄到浅红褐",
       "hardness": "高",
       "price": "中",
-      "scene": "床、柜子、椅子"
+      "scene": "床、柜子、椅子",
+      "image": "images/workshop/wood-beech.jpeg"
     },
     {
       "name": "橡木",
@@ -325,7 +327,8 @@
       "color": "浅黄褐",
       "hardness": "中高",
       "price": "中",
-      "scene": "餐桌、书柜、地板"
+      "scene": "餐桌、书柜、地板",
+      "image": "images/workshop/wood-oak.jpeg"
     },
     {
       "name": "松木",
@@ -333,7 +336,8 @@
       "color": "浅黄白",
       "hardness": "低",
       "price": "实惠",
-      "scene": "儿童家具、辅料"
+      "scene": "儿童家具、辅料",
+      "image": "images/workshop/wood-pine.jpeg"
     }
   ],
   "woodsNote": "以上价格为大致参考，实际价格根据木材市场行情和具体尺寸而定。我们不追求用最贵的木材，而是推荐最适合您需求和预算的木材。",
@@ -367,8 +371,8 @@
   "galleryCategories": [
     { "id": "machine", "name": "机器设备" },
     { "id": "work", "name": "工作场景" },
-    { "id": "wood", "name": "木材原料" },
-    { "id": "finished", "name": "成品展示" }
+    { "id": "finished", "name": "成品展示" },
+    { "id": "wood", "name": "木材原料" }
   ],
   "gallery": [
     {
@@ -426,30 +430,6 @@
       "caption": "师傅在平木"
     },
     {
-      "src": "images/workshop/wood-compare.jpeg",
-      "alt": "四种实木对比",
-      "category": "wood",
-      "caption": "黑胡桃 · 樱桃木 · 红橡 · 白蜡木"
-    },
-    {
-      "src": "images/workshop/wood-cherry.jpeg",
-      "alt": "樱桃木",
-      "category": "wood",
-      "caption": "樱桃木：温润细腻，越用越有颜色"
-    },
-    {
-      "src": "images/workshop/wood-red-oak.jpeg",
-      "alt": "红橡木",
-      "category": "wood",
-      "caption": "红橡木：纹路较粗，性价比高"
-    },
-    {
-      "src": "images/workshop/wood-ash.jpeg",
-      "alt": "白蜡木",
-      "category": "wood",
-      "caption": "白蜡木：纹路大、颜色浅，性价比高"
-    },
-    {
       "src": "images/workshop/finished-cabinet.jpeg",
       "alt": "待发货柜子",
       "category": "finished",
@@ -478,6 +458,30 @@
       "alt": "床架圆角细节",
       "category": "finished",
       "caption": "床架圆角细节"
+    },
+    {
+      "src": "images/workshop/wood-walnut.jpeg",
+      "alt": "北美黑胡桃",
+      "category": "wood",
+      "caption": "黑胡桃：色沉纹细，稳，适合床和柜子"
+    },
+    {
+      "src": "images/workshop/wood-beech.jpeg",
+      "alt": "山毛榉",
+      "category": "wood",
+      "caption": "山毛榉：纹理均匀，质地硬，性价比高"
+    },
+    {
+      "src": "images/workshop/wood-oak.jpeg",
+      "alt": "橡木",
+      "category": "wood",
+      "caption": "橡木：纹路粗，耐磨损"
+    },
+    {
+      "src": "images/workshop/wood-pine.jpeg",
+      "alt": "松木",
+      "category": "wood",
+      "caption": "松木：浅黄白，有松香，适合儿童家具"
     }
   ],
   "company": {
