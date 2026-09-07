@@ -81,7 +81,6 @@
     if (co.operator) {
       companyLines += "<span>经营者：" + escapeHtml(co.operator) + "</span>";
     }
-    companyLines += '<a href="about.html#license">' + escapeHtml(co.licenseCaption || "营业执照") + "</a>";
 
     var copyBits = '<span>' + escapeHtml(cfg.site.footer) + "</span>";
     if (co.icp) {
@@ -92,7 +91,6 @@
         escapeHtml(co.icp) +
         "</a>";
     }
-    copyBits += '<a href="about.html#license">' + escapeHtml(co.licenseCaption || "营业执照") + "</a>";
 
     $("#site-footer").innerHTML =
       '<div class="wrap">' +
