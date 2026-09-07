@@ -824,6 +824,15 @@ table.woods tr:last-child td { border-bottom: 0; }
   font-size: 12px;
 }
 
+.site-stats {
+  flex-basis: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 18px;
+  font-size: 13px;
+  opacity: 0.9;
+}
+
 .legal-grid {
   display: grid;
   grid-template-columns: 0.9fr 1.1fr;

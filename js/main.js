@@ -95,6 +95,8 @@
       copyBits += '<span class="copyright-note">' + escapeHtml(cfg.site.originalNote) + "</span>";
     }
 
+    copyBits += siteStatsHtml(cfg);
+
     $("#site-footer").innerHTML =
       '<div class="wrap">' +
       '<div class="footer-grid">' +
@@ -108,6 +110,75 @@
       "<div><h3>公司信息</h3><div class=\"footer-contact\">" + companyLines + "</div></div>" +
       "</div>" +
       '<div class="copy">' + copyBits + "</div></div>";
+
+    startUptime(cfg);
+    loadBusuanzi(cfg);
+  }
+
+  function parseStartAt(raw) {
+    if (!raw) return null;
+    var t = String(raw).trim();
+    if (/^\d{4}-\d{2}-\d{2}$/.test(t)) {
+      t += "T00:00:00+08:00";
+    } else if (/^\d{4}-\d{2}-\d{2} /.test(t)) {
+      t = t.replace(" ", "T");
+      if (!/[zZ]|[+-]\d{2}:?\d{2}$/.test(t)) t += "+08:00";
+    }
+    var d = new Date(t);
+    return isNaN(d.getTime()) ? null : d;
+  }
+
+  function formatUptime(start) {
+    var ms = Date.now() - start.getTime();
+    if (ms < 0) ms = 0;
+    var sec = Math.floor(ms / 1000);
+    var days = Math.floor(sec / 86400);
+    sec %= 86400;
+    var hours = Math.floor(sec / 3600);
+    sec %= 3600;
+    var mins = Math.floor(sec / 60);
+    var secs = sec % 60;
+    return days + " 天 " + hours + " 小时 " + mins + " 分 " + secs + " 秒";
+  }
+
+  function siteStatsHtml(cfg) {
+    var stats = cfg.stats || {};
+    var bits = '<span class="site-stats">';
+    if (parseStartAt(stats.startAt)) {
+      bits += '<span>本站已运行 <span id="site-uptime">—</span></span>';
+    }
+    if (stats.busuanzi !== false) {
+      bits +=
+        '<span id="busuanzi_container_site_pv">访问 <span id="busuanzi_value_site_pv"></span> 次</span>' +
+        '<span id="busuanzi_container_site_uv">访客 <span id="busuanzi_value_site_uv"></span> 人</span>';
+    }
+    bits += "</span>";
+    return bits;
+  }
+
+  var uptimeTimer = 0;
+
+  function startUptime(cfg) {
+    var el = $("#site-uptime");
+    var start = parseStartAt(cfg.stats && cfg.stats.startAt);
+    if (!el || !start) return;
+    if (uptimeTimer) clearInterval(uptimeTimer);
+    function tick() {
+      el.textContent = formatUptime(start);
+    }
+    tick();
+    uptimeTimer = setInterval(tick, 1000);
+  }
+
+  function loadBusuanzi(cfg) {
+    var stats = cfg.stats || {};
+    if (stats.busuanzi === false) return;
+    if ($("#busuanzi-script")) return;
+    var s = document.createElement("script");
+    s.id = "busuanzi-script";
+    s.async = true;
+    s.src = stats.script || "https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js";
+    document.body.appendChild(s);
   }
 
   function telHref(c, fallback) {
