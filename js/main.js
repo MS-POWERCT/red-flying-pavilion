@@ -91,6 +91,9 @@
         escapeHtml(co.icp) +
         "</a>";
     }
+    if (cfg.site.originalNote) {
+      copyBits += '<span class="copyright-note">' + escapeHtml(cfg.site.originalNote) + "</span>";
+    }
 
     $("#site-footer").innerHTML =
       '<div class="wrap">' +
@@ -120,11 +123,35 @@
       '<a href="#" data-wechat>微信联系</a>';
   }
 
+  function watermarkLabel() {
+    var site = state.config && state.config.site;
+    return escapeHtml((site && site.watermark) || "盗图必究");
+  }
+
+  function watermarkBadge() {
+    return '<span class="wm">' + watermarkLabel() + "</span>";
+  }
+
+  function formatUploadDate(iso) {
+    if (!iso) return "";
+    var p = String(iso).split("-");
+    if (p.length < 3) return iso;
+    return Number(p[0]) + "年" + Number(p[1]) + "月" + Number(p[2]) + "日";
+  }
+
+  function originalMeta(p) {
+    var day = formatUploadDate(p.updatedAt);
+    if (day) return "原创图文 · " + day + " 上传";
+    return "原创图文";
+  }
+
   function productCard(p) {
     return (
       '<article class="product-card" data-id="' + escapeHtml(p.id) + '" data-category="' + escapeHtml(p.category) + '">' +
-      '<div class="thumb"><img src="' + escapeHtml(p.images[0]) + '" alt="' + escapeHtml(p.name) + '" loading="lazy"></div>' +
+      '<div class="thumb img-protect"><img src="' + escapeHtml(p.images[0]) + '" alt="' + escapeHtml(p.name) + '" loading="lazy">' +
+      watermarkBadge() + "</div>" +
       '<div class="body"><h3>' + escapeHtml(p.name) + "</h3>" +
+      '<p class="origin-note">' + escapeHtml(originalMeta(p)) + "</p>" +
       '<p class="muted">' + escapeHtml(p.desc) + "</p>" +
       '<div class="product-meta">' +
       p.woods.map(function (w) { return '<span class="tag">' + escapeHtml(w) + "</span>"; }).join("") +
@@ -147,11 +174,17 @@
   function openProduct(p) {
     var images = p.images
       .map(function (src) {
-        return '<img src="' + escapeHtml(src) + '" alt="' + escapeHtml(p.name) + '" data-full="' + escapeHtml(src) + '">';
+        return (
+          '<div class="detail-shot img-protect">' +
+          '<img src="' + escapeHtml(src) + '" alt="' + escapeHtml(p.name) + '" data-full="' + escapeHtml(src) + '">' +
+          watermarkBadge() +
+          "</div>"
+        );
       })
       .join("");
     openPanel(
       "<h2>" + escapeHtml(p.name) + "</h2>" +
+      '<p class="origin-note">' + escapeHtml(originalMeta(p)) + "</p>" +
       '<div class="detail-images">' + images + "</div>" +
       "<p>" + escapeHtml(p.desc) + "</p>" +
       "<p>适用木材：" + escapeHtml(p.woods.join("、")) + "</p>" +
@@ -194,7 +227,11 @@
       '<section class="section"><div class="wrap"><div class="highlights">' + highlights + "</div></div></section>" +
       '<section class="section section-alt"><div class="wrap">' +
       '<div class="section-head"><p class="eyebrow">PRODUCTS</p><h2>' + escapeHtml(cfg.homeProducts.title) + "</h2>" +
-      "<p>" + escapeHtml(cfg.homeProducts.subtitle) + "</p></div>" +
+      "<p>" + escapeHtml(cfg.homeProducts.subtitle) + "</p>" +
+      (cfg.homeProducts.originalNote
+        ? '<p class="origin-note page-origin">' + escapeHtml(cfg.homeProducts.originalNote) + "</p>"
+        : "") +
+      "</div>" +
       '<div class="product-grid">' + featured.map(productCard).join("") + "</div>" +
       '<p style="text-align:center;margin-top:36px"><a class="btn btn-line" href="products.html">查看全部产品</a></p>' +
       "</div></section>" +
@@ -240,7 +277,9 @@
 
     $("#main").innerHTML =
       '<section class="page-hero"><div class="wrap"><p class="eyebrow">ABOUT</p>' +
-      "<h1>" + escapeHtml(a.pageTitle) + "</h1><p class=\"muted\">" + escapeHtml(a.pageSubtitle) + "</p></div></section>" +
+      "<h1>" + escapeHtml(a.pageTitle) + "</h1><p class=\"muted\">" + escapeHtml(a.pageSubtitle) + "</p>" +
+      (a.originalNote ? '<p class="origin-note page-origin">' + escapeHtml(a.originalNote) + "</p>" : "") +
+      "</div></section>" +
       '<section class="section"><div class="wrap story-grid">' +
       '<div class="story-quote">' + escapeHtml(a.intro) + "</div>" +
       "<div>" + story + "</div></div></section>" +
@@ -287,7 +326,11 @@
     $("#main").innerHTML =
       '<section class="page-hero"><div class="wrap"><p class="eyebrow">PRODUCTS</p>' +
       "<h1>" + escapeHtml(cfg.productsPage.title) + "</h1>" +
-      '<p class="muted">' + escapeHtml(cfg.productsPage.subtitle) + "</p></div></section>" +
+      '<p class="muted">' + escapeHtml(cfg.productsPage.subtitle) + "</p>" +
+      (cfg.productsPage.originalNote
+        ? '<p class="origin-note page-origin">' + escapeHtml(cfg.productsPage.originalNote) + "</p>"
+        : "") +
+      "</div></section>" +
       '<section class="section"><div class="wrap">' +
       '<div class="filters">' + filters + "</div>" +
       '<p class="cat-intro" data-cat="all">' + escapeHtml(cfg.productsPage.subtitle) + "</p>" +
@@ -401,7 +444,8 @@
       .map(function (g) {
         return (
           '<figure class="gallery-item" data-category="' + escapeHtml(g.category) + '" data-full="' + escapeHtml(g.src) + '">' +
-          '<img src="' + escapeHtml(g.src) + '" alt="' + escapeHtml(g.alt) + '" loading="lazy">' +
+          '<div class="shot img-protect"><img src="' + escapeHtml(g.src) + '" alt="' + escapeHtml(g.alt) + '" loading="lazy">' +
+          watermarkBadge() + "</div>" +
           "<figcaption>" + escapeHtml(g.caption) + "</figcaption></figure>"
         );
       })
@@ -410,7 +454,11 @@
     $("#main").innerHTML =
       '<section class="page-hero"><div class="wrap"><p class="eyebrow">WORKSHOP</p>' +
       "<h1>" + escapeHtml(cfg.workshopPage.title) + "</h1>" +
-      '<p class="muted">' + escapeHtml(cfg.workshopPage.subtitle) + "</p></div></section>" +
+      '<p class="muted">' + escapeHtml(cfg.workshopPage.subtitle) + "</p>" +
+      (cfg.workshopPage.originalNote
+        ? '<p class="origin-note page-origin">' + escapeHtml(cfg.workshopPage.originalNote) + "</p>"
+        : "") +
+      "</div></section>" +
       '<section class="section"><div class="wrap">' +
       '<div class="filters">' + filters + "</div>" +
       '<div class="gallery">' + items + "</div></div></section>" +
@@ -518,7 +566,11 @@
     var el = ensureLightbox();
     var items = lightbox.items;
     var item = items[lightbox.index] || { src: "", alt: "" };
-    $(".lightbox-body", el).innerHTML = '<img src="' + escapeHtml(item.src) + '" alt="' + escapeHtml(item.alt || "") + '">';
+    $(".lightbox-body", el).innerHTML =
+      '<div class="img-protect">' +
+      '<img src="' + escapeHtml(item.src) + '" alt="' + escapeHtml(item.alt || "") + '">' +
+      watermarkBadge() +
+      "</div>";
     $(".lightbox-count", el).textContent = items.length > 1 ? lightbox.index + 1 + " / " + items.length : "";
     el.classList.toggle("has-nav", items.length > 1);
     el.classList.add("is-open");

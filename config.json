@@ -4,17 +4,37 @@
     "subtitle": "30年实木定制老手艺",
     "logo": "images/logo.jpeg",
     "footer": "© 2026 红飞阁木业 · 专注实木定制30年",
+    "watermark": "盗图必究",
     "description": "红飞阁木业，江西上饶广丰实木家具定制。陈师傅30年手艺，来图定制床、沙发、柜子、梳妆台。北美黑胡桃、樱桃木、红橡、白蜡木可选，包工包料，物流发货。",
     "url": "",
-    "keywords": "红飞阁木业,实木家具定制,来图定制,实木床,无床头实木床,实木沙发,茶颜边柜,满月梳妆台,全屋实木定制,北美黑胡桃,樱桃木,红橡木,白蜡木,上饶广丰家具,陈师傅"
+    "keywords": "红飞阁木业,实木家具定制,来图定制,实木床,无床头实木床,实木沙发,新中式储物沙发,实木茶几,茶颜边柜,满月梳妆台,全屋实木定制,北美黑胡桃,樱桃木,红橡木,白蜡木,上饶广丰家具,陈师傅",
+    "originalNote": "本站图文为红飞阁木业原创，产品图均为实拍。"
   },
   "nav": [
-    { "label": "首页", "href": "index.html" },
-    { "label": "关于我们", "href": "about.html" },
-    { "label": "产品展示", "href": "products.html" },
-    { "label": "定制服务", "href": "custom.html" },
-    { "label": "工厂实拍", "href": "workshop.html" },
-    { "label": "联系我们", "href": "contact.html" }
+    {
+      "label": "首页",
+      "href": "index.html"
+    },
+    {
+      "label": "关于我们",
+      "href": "about.html"
+    },
+    {
+      "label": "产品展示",
+      "href": "products.html"
+    },
+    {
+      "label": "定制服务",
+      "href": "custom.html"
+    },
+    {
+      "label": "工厂实拍",
+      "href": "workshop.html"
+    },
+    {
+      "label": "联系我们",
+      "href": "contact.html"
+    }
   ],
   "hero": {
     "title": "匠心实木，为您定制",
@@ -47,7 +67,8 @@
   ],
   "homeProducts": {
     "title": "主打产品",
-    "subtitle": "实木床 · 沙发 · 柜子 · 更多定制"
+    "subtitle": "实木床 · 沙发 · 柜子 · 更多定制",
+    "originalNote": "以下为主打款，图文均为本站原创实拍。"
   },
   "homeCta": {
     "title": "有想法？发方案过来聊聊",
@@ -106,11 +127,13 @@
         "每一块木头都有它的纹理和脾气，做了三十多年，我父亲拿到一块料子就知道怎么下刀、怎么拼接、怎么打磨。这不是机器能替代的经验，是时间熬出来的手艺。",
         "我们不追求产量，只追求每一件家具拿得出手、客户满意。"
       ]
-    }
+    },
+    "originalNote": "本页文字为红飞阁木业原创介绍，转载请注明出处。"
   },
   "productsPage": {
     "title": "产品展示",
-    "subtitle": "实木床 · 沙发 · 柜子 · 支持来图定制更多品类"
+    "subtitle": "实木床 · 沙发 · 柜子 · 支持来图定制更多品类",
+    "originalNote": "本页产品图文为红飞阁木业原创。每件产品注明上传日期，图片均为实拍。"
   },
   "productCategories": [
     {
@@ -159,10 +182,16 @@
         "images/products/custom-detail11.jpeg",
         "images/products/custom-detail12.png"
       ],
-      "woods": ["北美黑胡桃", "樱桃木", "红橡", "白蜡木"],
+      "woods": [
+        "北美黑胡桃",
+        "樱桃木",
+        "红橡",
+        "白蜡木"
+      ],
       "size": "沙发 / 床 / 书柜 / 桌子 · 尺寸均可按需定制",
       "cycle": "8-15天",
-      "desc": "柜子、床、桌子、沙发都能做。北美黑胡桃、樱桃木、红橡、白蜡木可选，支持定制尺寸，包邮到家。点开详情可看选材样子、尺寸规则和成品参考。"
+      "desc": "柜子、床、桌子、沙发都能做。北美黑胡桃、樱桃木、红橡、白蜡木可选，支持定制尺寸，包邮到家。点开详情可看选材样子、尺寸规则和成品参考。",
+      "updatedAt": "2026-09-01"
     },
     {
       "id": "walnut-bed",
@@ -177,10 +206,15 @@
         "images/products/bed-walnut-detail4.jpeg",
         "images/products/bed-walnut-detail5.jpeg"
       ],
-      "woods": ["胡桃木", "山毛榉", "橡木"],
+      "woods": [
+        "胡桃木",
+        "山毛榉",
+        "橡木"
+      ],
       "size": "1.5m / 1.8m / 可按需定制",
       "cycle": "7-12天",
-      "desc": "线条干净，木纹沉稳，卧室里最安稳的那一件。"
+      "desc": "线条干净，木纹沉稳，卧室里最安稳的那一件。",
+      "updatedAt": "2026-09-01"
     },
     {
       "id": "fabric-sofa",
@@ -195,10 +229,56 @@
         "images/products/sofa-fabric-detail5.jpeg",
         "images/products/sofa-fabric-detail6.jpeg"
       ],
-      "woods": ["胡桃木", "山毛榉"],
+      "woods": [
+        "胡桃木",
+        "山毛榉"
+      ],
       "size": "三人位 / 转角 / 可按需定制",
       "cycle": "8-15天",
-      "desc": "实木框架承重，布艺软包坐着舒服，越用越有味道。"
+      "desc": "实木框架承重，布艺软包坐着舒服，越用越有味道。",
+      "updatedAt": "2026-09-01"
+    },
+    {
+      "id": "chinese-sofa",
+      "name": "新中式储物沙发",
+      "category": "sofa",
+      "featured": false,
+      "images": [
+        "images/products/sofa-chinese.jpeg",
+        "images/products/sofa-chinese-detail1.jpeg",
+        "images/products/sofa-chinese-detail2.jpeg"
+      ],
+      "woods": [
+        "樱桃木",
+        "北美黑胡桃",
+        "红橡",
+        "白蜡木"
+      ],
+      "size": "三人位 / 罗汉床式长榻 · 尺寸可按空间定制",
+      "cycle": "8-15天",
+      "desc": "工厂实拍。实木框、圆角打磨，底座三抽暗藏收纳，拉手内凹不磕手。薄坐垫配抱枕、圆柱靠枕，客厅当沙发、靠墙当榻都行。茶几可同款一起做。",
+      "updatedAt": "2026-09-07"
+    },
+    {
+      "id": "tea-table",
+      "name": "新中式实木茶几",
+      "category": "more",
+      "featured": false,
+      "images": [
+        "images/products/table-tea.jpeg",
+        "images/products/table-tea-detail1.jpeg",
+        "images/products/table-tea-detail2.jpeg"
+      ],
+      "woods": [
+        "樱桃木",
+        "北美黑胡桃",
+        "红橡",
+        "白蜡木"
+      ],
+      "size": "矩形茶几 · 长宽可按沙发和空间定制",
+      "cycle": "7-12天",
+      "desc": "工厂实拍，可与新中式储物沙发同款配套。框芯结构台面，圆角收边；四腿略收，腿底铜套。放客厅喝茶、摆茶具都合适，尺寸按沙发定。",
+      "updatedAt": "2026-09-07"
     },
     {
       "id": "moon-vanity",
@@ -213,10 +293,16 @@
         "images/products/table-vanity-detail4.jpeg",
         "images/products/table-vanity-detail5.jpeg"
       ],
-      "woods": ["北美黑胡桃", "樱桃木", "红橡", "白蜡木"],
+      "woods": [
+        "北美黑胡桃",
+        "樱桃木",
+        "红橡",
+        "白蜡木"
+      ],
       "size": "约 120×45cm / 可按需定制",
       "cycle": "7-12天",
-      "desc": "圆弧倒角，手工打磨。一侧木腿、一侧双抽屉配金属脚，抽屉有悬浮感，可配同款凳子，卧室梳妆或当书桌都行。"
+      "desc": "圆弧倒角，手工打磨。一侧木腿、一侧双抽屉配金属脚，抽屉有悬浮感，可配同款凳子，卧室梳妆或当书桌都行。",
+      "updatedAt": "2026-09-01"
     },
     {
       "id": "new-chinese-bed",
@@ -229,10 +315,14 @@
         "images/products/bed-chinese-detail2.jpeg",
         "images/products/bed-chinese-detail3.jpeg"
       ],
-      "woods": ["橡木", "胡桃木"],
+      "woods": [
+        "橡木",
+        "胡桃木"
+      ],
       "size": "1.5m / 1.8m / 可按需定制",
       "cycle": "7-12天",
-      "desc": "床头略作雕花，不繁不简，适合喜欢中式味道的家里。"
+      "desc": "床头略作雕花，不繁不简，适合喜欢中式味道的家里。",
+      "updatedAt": "2026-09-01"
     },
     {
       "id": "platform-bed",
@@ -248,10 +338,14 @@
         "images/products/bed-platform-detail5.jpeg",
         "images/products/bed-platform-detail6.jpeg"
       ],
-      "woods": ["北美黑胡桃", "樱桃木"],
+      "woods": [
+        "北美黑胡桃",
+        "樱桃木"
+      ],
       "size": "1.2m / 1.35m / 1.5m / 1.8m / 2.0m / 2.2m × 2.0m",
       "cycle": "7-12天",
-      "desc": "无床头，过道更宽，小户型也好摆大床。加密排骨架，铺板可选黑胡桃或樱桃木。床下约15cm，扫地机过得去。"
+      "desc": "无床头，过道更宽，小户型也好摆大床。加密排骨架，铺板可选黑胡桃或樱桃木。床下约15cm，扫地机过得去。",
+      "updatedAt": "2026-09-01"
     },
     {
       "id": "chayan-cabinet",
@@ -265,10 +359,16 @@
         "images/products/cabinet-chayan-detail3.jpeg",
         "images/products/cabinet-chayan-detail4.jpeg"
       ],
-      "woods": ["北美黑胡桃", "樱桃木", "红橡", "白蜡木"],
+      "woods": [
+        "北美黑胡桃",
+        "樱桃木",
+        "红橡",
+        "白蜡木"
+      ],
       "size": "约 60×40×190cm / 可按需定制",
       "cycle": "10-15天",
-      "desc": "上玻下抽，柜内可做层板灯。木蜡油配黑胡桃，纹理自然、结构稳。适合客厅靠墙放书、酒具或茶器。"
+      "desc": "上玻下抽，柜内可做层板灯。木蜡油配黑胡桃，纹理自然、结构稳。适合客厅靠墙放书、酒具或茶器。",
+      "updatedAt": "2026-09-01"
     }
   ],
   "customPage": {
@@ -366,13 +466,26 @@
   "workshopPage": {
     "title": "工厂实拍",
     "subtitle": "真实的加工环境，看得见的手艺",
-    "closing": "不搞花里胡哨的展厅，这就是真实的工作环境。每一件家具都是从这里做出来的，每一刀都是实打实的功夫。"
+    "closing": "不搞花里胡哨的展厅，这就是真实的工作环境。每一件家具都是从这里做出来的，每一刀都是实打实的功夫。",
+    "originalNote": "工厂实拍均为现场拍摄，图文原创，未经许可请勿转载。"
   },
   "galleryCategories": [
-    { "id": "machine", "name": "机器设备" },
-    { "id": "work", "name": "工作场景" },
-    { "id": "finished", "name": "成品展示" },
-    { "id": "wood", "name": "木材原料" }
+    {
+      "id": "machine",
+      "name": "机器设备"
+    },
+    {
+      "id": "work",
+      "name": "工作场景"
+    },
+    {
+      "id": "finished",
+      "name": "成品展示"
+    },
+    {
+      "id": "wood",
+      "name": "木材原料"
+    }
   ],
   "gallery": [
     {
