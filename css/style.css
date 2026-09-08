@@ -1,4 +1,4 @@
-/* 红飞阁木业 — 全站样式 */
+/* 头木木业 — 全站样式 */
 
 :root {
   --wood: #8b6914;
@@ -21,8 +21,12 @@
   --radius: 14px;
   --header-h: 72px;
   --bar-h: 64px;
-  --font-serif: "Songti SC", "STSong", "SimSun", "Noto Serif SC", "Source Han Serif SC", Georgia, serif;
-  --font-sans: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans SC", "Source Han Sans SC", sans-serif;
+  --font-serif:
+    "Songti SC", "STSong", "SimSun", "Noto Serif SC", "Source Han Serif SC",
+    Georgia, serif;
+  --font-sans:
+    "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans SC",
+    "Source Han Sans SC", sans-serif;
   --max: 1120px;
 }
 
@@ -76,7 +80,10 @@ textarea {
   color: inherit;
 }
 
-h1, h2, h3, h4 {
+h1,
+h2,
+h3,
+h4 {
   font-family: var(--font-serif);
   font-weight: 600;
   line-height: 1.25;
@@ -84,8 +91,12 @@ h1, h2, h3, h4 {
   margin: 0 0 0.6em;
 }
 
-p { margin: 0 0 1em; }
-p:last-child { margin-bottom: 0; }
+p {
+  margin: 0 0 1em;
+}
+p:last-child {
+  margin-bottom: 0;
+}
 
 .skip-link {
   position: absolute;
@@ -97,7 +108,9 @@ p:last-child { margin-bottom: 0; }
   padding: 8px 14px;
 }
 
-.skip-link:focus { top: 12px; }
+.skip-link:focus {
+  top: 12px;
+}
 
 .wrap {
   width: min(var(--max), calc(100% - 40px));
@@ -110,7 +123,9 @@ p:last-child { margin-bottom: 0; }
   padding: 88px 0;
 }
 
-.section-alt { background: var(--bg-alt); }
+.section-alt {
+  background: var(--bg-alt);
+}
 
 .eyebrow {
   display: inline-block;
@@ -148,7 +163,10 @@ p:last-child { margin-bottom: 0; }
   background: var(--wood);
   color: #fffdf8;
   cursor: pointer;
-  transition: transform 0.2s, background 0.2s, box-shadow 0.2s;
+  transition:
+    transform 0.2s,
+    background 0.2s,
+    box-shadow 0.2s;
   letter-spacing: 0.06em;
 }
 
@@ -164,7 +182,9 @@ p:last-child { margin-bottom: 0; }
   border-color: rgba(255, 253, 248, 0.45);
 }
 
-.btn-ghost:hover { background: rgba(255, 253, 248, 0.1); }
+.btn-ghost:hover {
+  background: rgba(255, 253, 248, 0.1);
+}
 
 .btn-line {
   background: transparent;
@@ -172,7 +192,9 @@ p:last-child { margin-bottom: 0; }
   border-color: var(--line-strong);
 }
 
-.btn-line:hover { background: var(--bg-alt); }
+.btn-line:hover {
+  background: var(--bg-alt);
+}
 
 /* Header */
 
@@ -271,12 +293,24 @@ p:last-child { margin-bottom: 0; }
   left: 0;
 }
 
-.menu-toggle span::before { top: -7px; }
-.menu-toggle span::after { top: 7px; }
+.menu-toggle span::before {
+  top: -7px;
+}
+.menu-toggle span::after {
+  top: 7px;
+}
 
-body.nav-open .menu-toggle span { background: transparent; }
-body.nav-open .menu-toggle span::before { top: 0; transform: rotate(45deg); }
-body.nav-open .menu-toggle span::after { top: 0; transform: rotate(-45deg); }
+body.nav-open .menu-toggle span {
+  background: transparent;
+}
+body.nav-open .menu-toggle span::before {
+  top: 0;
+  transform: rotate(45deg);
+}
+body.nav-open .menu-toggle span::after {
+  top: 0;
+  transform: rotate(-45deg);
+}
 
 /* Hero */
 
@@ -294,7 +328,11 @@ body.nav-open .menu-toggle span::after { top: 0; transform: rotate(-45deg); }
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(180deg, rgba(44, 24, 16, 0.35) 0%, rgba(44, 24, 16, 0.62) 100%),
+    linear-gradient(
+      180deg,
+      rgba(44, 24, 16, 0.35) 0%,
+      rgba(44, 24, 16, 0.62) 100%
+    ),
     center / cover no-repeat;
 }
 
@@ -367,7 +405,9 @@ body.nav-open .menu-toggle span::after { top: 0; transform: rotate(-45deg); }
   flex-direction: column;
   text-align: left;
   cursor: pointer;
-  transition: box-shadow 0.2s, border-color 0.2s;
+  transition:
+    box-shadow 0.2s,
+    border-color 0.2s;
 }
 
 .product-card:hover {
@@ -446,7 +486,10 @@ body.nav-open .menu-toggle span::after { top: 0; transform: rotate(-45deg); }
   color: var(--wood-dark);
 }
 
-.muted { color: var(--ink-muted); font-size: 14px; }
+.muted {
+  color: var(--ink-muted);
+  font-size: 14px;
+}
 
 .filters {
   display: flex;
@@ -486,8 +529,13 @@ body.nav-open .menu-toggle span::after { top: 0; transform: rotate(-45deg); }
   text-align: center;
 }
 
-.cta-band h2 { font-size: clamp(28px, 4vw, 40px); }
-.cta-band p { color: rgba(255, 253, 248, 0.75); margin-bottom: 28px; }
+.cta-band h2 {
+  font-size: clamp(28px, 4vw, 40px);
+}
+.cta-band p {
+  color: rgba(255, 253, 248, 0.75);
+  margin-bottom: 28px;
+}
 
 /* About */
 
@@ -543,7 +591,10 @@ body.nav-open .menu-toggle span::after { top: 0; transform: rotate(-45deg); }
   color: #fffdf8;
 }
 
-.philosophy p { color: rgba(255, 253, 248, 0.78); max-width: 720px; }
+.philosophy p {
+  color: rgba(255, 253, 248, 0.78);
+  max-width: 720px;
+}
 
 /* Process */
 
@@ -599,7 +650,9 @@ table.woods th {
   font-size: 14px;
 }
 
-table.woods tr:last-child td { border-bottom: 0; }
+table.woods tr:last-child td {
+  border-bottom: 0;
+}
 
 .wood-name {
   display: flex;
@@ -623,7 +676,9 @@ table.woods tr:last-child td { border-bottom: 0; }
   font-size: 14px;
 }
 
-.wood-cards { display: none; }
+.wood-cards {
+  display: none;
+}
 
 /* FAQ */
 
@@ -656,7 +711,9 @@ table.woods tr:last-child td { border-bottom: 0; }
   color: var(--ink-muted);
 }
 
-.faq-item.is-open .a { display: block; }
+.faq-item.is-open .a {
+  display: block;
+}
 
 .faq-item .mark {
   color: var(--wood);
@@ -784,8 +841,12 @@ table.woods tr:last-child td { border-bottom: 0; }
   margin-bottom: 28px;
 }
 
-.site-footer .brand-name { color: #fffdf8; }
-.site-footer a:hover { color: #fffdf8; }
+.site-footer .brand-name {
+  color: #fffdf8;
+}
+.site-footer a:hover {
+  color: #fffdf8;
+}
 .site-footer h3 {
   color: #fffdf8;
   font-size: 16px;
@@ -921,7 +982,10 @@ table.woods tr:last-child td { border-bottom: 0; }
   border-right: 1px solid rgba(255, 253, 248, 0.1);
 }
 
-.mobile-bar a:last-child { border-right: 0; background: var(--wood); }
+.mobile-bar a:last-child {
+  border-right: 0;
+  background: var(--wood);
+}
 
 /* Lightbox / modal */
 
@@ -936,7 +1000,9 @@ table.woods tr:last-child td { border-bottom: 0; }
   padding: 24px;
 }
 
-.overlay.is-open { display: flex; }
+.overlay.is-open {
+  display: flex;
+}
 
 .overlay-body {
   display: flex;
@@ -957,7 +1023,9 @@ table.woods tr:last-child td { border-bottom: 0; }
   background: rgba(20, 10, 6, 0.88);
 }
 
-.lightbox.is-open { display: flex; }
+.lightbox.is-open {
+  display: flex;
+}
 
 .lightbox-body {
   display: flex;
@@ -1013,8 +1081,12 @@ table.woods tr:last-child td { border-bottom: 0; }
   line-height: 1;
 }
 
-.lb-prev { left: 16px; }
-.lb-next { right: 16px; }
+.lb-prev {
+  left: 16px;
+}
+.lb-next {
+  right: 16px;
+}
 
 .lightbox:not(.has-nav) .lb-nav,
 .lightbox:not(.has-nav) .lightbox-count {
@@ -1114,11 +1186,15 @@ table.woods tr:last-child td { border-bottom: 0; }
     grid-template-columns: 1fr;
   }
 
-  .gallery { grid-template-columns: repeat(2, 1fr); }
+  .gallery {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 @media (max-width: 760px) {
-  .menu-toggle { display: block; }
+  .menu-toggle {
+    display: block;
+  }
 
   .nav {
     display: none;
@@ -1133,7 +1209,9 @@ table.woods tr:last-child td { border-bottom: 0; }
     padding: 12px 16px 20px;
   }
 
-  body.nav-open .nav { display: flex; }
+  body.nav-open .nav {
+    display: flex;
+  }
 
   .highlights,
   .product-grid,
@@ -1141,15 +1219,25 @@ table.woods tr:last-child td { border-bottom: 0; }
     grid-template-columns: 1fr;
   }
 
-  .gallery { grid-template-columns: 1fr; }
+  .gallery {
+    grid-template-columns: 1fr;
+  }
 
-  .mobile-bar { display: grid; }
+  .mobile-bar {
+    display: grid;
+  }
 
-  body { padding-bottom: var(--bar-h); }
+  body {
+    padding-bottom: var(--bar-h);
+  }
 
-  .section { padding: 64px 0; }
+  .section {
+    padding: 64px 0;
+  }
 
-  table.woods { display: none; }
+  table.woods {
+    display: none;
+  }
 
   .wood-cards {
     display: grid;
@@ -1169,7 +1257,9 @@ table.woods tr:last-child td { border-bottom: 0; }
     margin-bottom: 12px;
   }
 
-  .wood-card h3 { margin-bottom: 8px; }
+  .wood-card h3 {
+    margin-bottom: 8px;
+  }
 
   .wood-card dl {
     display: grid;
@@ -1179,10 +1269,16 @@ table.woods tr:last-child td { border-bottom: 0; }
     font-size: 14px;
   }
 
-  .wood-card dt { color: var(--ink-muted); }
+  .wood-card dt {
+    color: var(--ink-muted);
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  html { scroll-behavior: auto; }
-  .btn { transition: none; }
+  html {
+    scroll-behavior: auto;
+  }
+  .btn {
+    transition: none;
+  }
 }
