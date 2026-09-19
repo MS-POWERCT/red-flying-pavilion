@@ -113,6 +113,27 @@
 
     startUptime(cfg);
     loadBusuanzi(cfg);
+    bindBusuanziOffset(cfg);
+  }
+
+  function statsNumber(stats, key) {
+    var n = Number(stats && stats[key]);
+    return isFinite(n) && n > 0 ? n : 0;
+  }
+
+  function statsHoursSinceStart(stats) {
+    var start = parseStartAt(stats && stats.startAt);
+    if (!start) return 0;
+    var hours = (Date.now() - start.getTime()) / 3600000;
+    return hours > 0 ? hours : 0;
+  }
+
+  function statsFakeExtra(stats, perHourKey) {
+    return Math.floor(statsHoursSinceStart(stats) * statsNumber(stats, perHourKey));
+  }
+
+  function statsDisplayBase(stats, offsetKey, perHourKey) {
+    return Math.floor(statsNumber(stats, offsetKey) + statsFakeExtra(stats, perHourKey));
   }
 
   function parseStartAt(raw) {
@@ -149,8 +170,16 @@
     }
     if (stats.busuanzi !== false) {
       bits +=
-        '<span id="busuanzi_container_site_pv">访问 <span id="busuanzi_value_site_pv"></span> 次</span>' +
-        '<span id="busuanzi_container_site_uv">访客 <span id="busuanzi_value_site_uv"></span> 人</span>';
+        '<span class="busuanzi-raw" aria-hidden="true">' +
+        '<span id="busuanzi_container_site_pv"><span id="busuanzi_value_site_pv"></span></span>' +
+        '<span id="busuanzi_container_site_uv"><span id="busuanzi_value_site_uv"></span></span>' +
+        "</span>" +
+        '<span>访问 <span id="site-pv-display">' +
+        escapeHtml(String(statsDisplayBase(stats, "pvOffset", "pvPerHour"))) +
+        "</span> 次</span>" +
+        '<span>访客 <span id="site-uv-display">' +
+        escapeHtml(String(statsDisplayBase(stats, "uvOffset", "uvPerHour"))) +
+        "</span> 人</span>";
     }
     bits += "</span>";
     return bits;
@@ -179,6 +208,46 @@
     s.async = true;
     s.src = stats.script || "https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js";
     document.body.appendChild(s);
+  }
+
+  function bindBusuanziOffset(cfg) {
+    var stats = cfg.stats || {};
+    if (stats.busuanzi === false) return;
+
+    function readCount(id) {
+      var el = document.getElementById(id);
+      if (!el) return null;
+      var n = parseInt(String(el.textContent).replace(/[^\d]/g, ""), 10);
+      return isNaN(n) ? null : n;
+    }
+
+    function paint() {
+      var pv = readCount("busuanzi_value_site_pv");
+      var uv = readCount("busuanzi_value_site_uv");
+      var pvEl = $("#site-pv-display");
+      var uvEl = $("#site-uv-display");
+      var fakePv = statsDisplayBase(stats, "pvOffset", "pvPerHour");
+      var fakeUv = statsDisplayBase(stats, "uvOffset", "uvPerHour");
+      if (pvEl) pvEl.textContent = String((pv == null ? 0 : pv) + fakePv);
+      if (uvEl) uvEl.textContent = String((uv == null ? 0 : uv) + fakeUv);
+      return pv != null && uv != null;
+    }
+
+    paint();
+    var srcPv = document.getElementById("busuanzi_value_site_pv");
+    var srcUv = document.getElementById("busuanzi_value_site_uv");
+    if (window.MutationObserver && srcPv && srcUv) {
+      var obs = new MutationObserver(paint);
+      obs.observe(srcPv, { childList: true, characterData: true, subtree: true });
+      obs.observe(srcUv, { childList: true, characterData: true, subtree: true });
+    }
+    var tries = 0;
+    var timer = setInterval(function () {
+      tries += 1;
+      paint();
+      if (tries > 40) clearInterval(timer);
+    }, 250);
+    setInterval(paint, 60000);
   }
 
   function telHref(c, fallback) {

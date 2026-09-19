@@ -13,7 +13,11 @@
   "stats": {
     "startAt": "2026-09-01 00:00:00",
     "busuanzi": true,
-    "script": "https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"
+    "script": "https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js",
+    "pvOffset": 5280,
+    "uvOffset": 1860,
+    "pvPerHour": 3,
+    "uvPerHour": 1.2
   },
   "nav": [
     {
