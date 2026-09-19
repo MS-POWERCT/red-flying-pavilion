@@ -1371,3 +1371,126 @@ table.compare-table tbody th {
     transition: none;
   }
 }
+
+body.nbsz-only {
+  min-height: 100vh;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg);
+}
+
+body.nbsz-only::before {
+  opacity: 0.02;
+}
+
+body.nbsz-only #main {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 16px;
+  box-sizing: border-box;
+}
+
+.nbsz-box {
+  width: min(900px, 100%);
+  margin: 0 auto;
+  text-align: center;
+}
+
+.nbsz-kicker {
+  margin: 0;
+  letter-spacing: 0.18em;
+  font-size: 12px;
+  color: var(--wood);
+}
+
+.nbsz-box h1 {
+  margin: 10px 0 32px;
+  font-size: 32px;
+}
+
+.nbsz-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+
+.nbsz-grid-3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.nbsz-grid section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 24px 18px 20px;
+  min-height: 220px;
+}
+
+.nbsz-grid h2 {
+  margin: 0 0 18px;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--ink-muted);
+  letter-spacing: 0.08em;
+}
+
+.nbsz-metric {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  margin: 10px 0;
+}
+
+.nbsz-label {
+  font-size: 12px;
+  color: var(--ink-muted);
+}
+
+.nbsz-num,
+.nbsz-num span {
+  display: block;
+  font-family: var(--font-serif);
+  font-size: 36px;
+  line-height: 1.15;
+  color: var(--ink);
+}
+
+body.nbsz-only #busuanzi_container_site_pv,
+body.nbsz-only #busuanzi_container_site_uv {
+  display: block !important;
+}
+
+.nbsz-break {
+  margin: 6px 0 0;
+  font-size: 12px;
+  color: var(--ink-muted);
+  line-height: 1.5;
+}
+
+.nbsz-meta {
+  margin: 22px auto 0;
+  max-width: 420px;
+  font-size: 13px;
+  line-height: 1.7;
+  color: var(--ink-muted);
+  text-align: center;
+}
+
+@media (max-width: 800px) {
+  .nbsz-grid-3 {
+    grid-template-columns: 1fr;
+  }
+
+  .nbsz-grid section {
+    min-height: 0;
+  }
+}

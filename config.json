@@ -19,7 +19,8 @@
     "pvOffset": 5280,
     "uvOffset": 1860,
     "pvPerHour": 3,
-    "uvPerHour": 1.2
+    "uvPerHour": 1.2,
+    "secretFile": "nbsz-9f2a.html"
   },
   "nav": [
     {
@@ -701,6 +702,11 @@
       "title": "联系我们 · 头木木业",
       "description": "咨询实木定制：电话 17779323886，微信 abc17779323886。地址江西省上饶市广丰县桐畈镇下社村石塔底2号，每天 7:00-20:00。",
       "image": "images/hero/hero-bg.png"
+    },
+    "nbsz": {
+      "title": "统计",
+      "description": "",
+      "robots": "noindex, nofollow, noarchive"
     },
     "notfound": {
       "title": "页面不存在 · 头木木业",

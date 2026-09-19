@@ -2,5 +2,6 @@ User-agent: *
 Allow: /
 Disallow: /404.html
 Disallow: /research/
+Disallow: /nbsz-9f2a.html
 
 Sitemap: /sitemap.xml

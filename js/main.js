@@ -230,6 +230,16 @@
       var fakeUv = statsDisplayBase(stats, "uvOffset", "uvPerHour");
       if (pvEl) pvEl.textContent = String((pv == null ? 0 : pv) + fakePv);
       if (uvEl) uvEl.textContent = String((uv == null ? 0 : uv) + fakeUv);
+      var hourPv = statsFakeExtra(stats, "pvPerHour");
+      var hourUv = statsFakeExtra(stats, "uvPerHour");
+      var hp = $("#nbsz-hour-pv");
+      var hu = $("#nbsz-hour-uv");
+      var ap = $("#nbsz-add-pv");
+      var au = $("#nbsz-add-uv");
+      if (hp) hp.textContent = String(hourPv);
+      if (hu) hu.textContent = String(hourUv);
+      if (ap) ap.textContent = String(fakePv);
+      if (au) au.textContent = String(fakeUv);
       return pv != null && uv != null;
     }
 
@@ -248,6 +258,42 @@
       if (tries > 40) clearInterval(timer);
     }, 250);
     setInterval(paint, 60000);
+  }
+
+  function renderNbsz(cfg) {
+    var stats = cfg.stats || {};
+    var fakePv = statsDisplayBase(stats, "pvOffset", "pvPerHour");
+    var fakeUv = statsDisplayBase(stats, "uvOffset", "uvPerHour");
+    var hourPv = statsFakeExtra(stats, "pvPerHour");
+    var hourUv = statsFakeExtra(stats, "uvPerHour");
+    var basePv = Math.floor(statsNumber(stats, "pvOffset"));
+    var baseUv = Math.floor(statsNumber(stats, "uvOffset"));
+    var hours = statsHoursSinceStart(stats);
+    $("#main").innerHTML =
+      '<div class="nbsz-box">' +
+      '<p class="nbsz-kicker">不蒜子对照</p>' +
+      "<h1>访问数据</h1>" +
+      '<div class="nbsz-grid nbsz-grid-3">' +
+      '<section><h2>真实</h2>' +
+      '<div class="nbsz-metric"><span class="nbsz-label">访问</span><span class="nbsz-num" id="busuanzi_container_site_pv"><span id="busuanzi_value_site_pv">…</span></span></div>' +
+      '<div class="nbsz-metric"><span class="nbsz-label">访客</span><span class="nbsz-num" id="busuanzi_container_site_uv"><span id="busuanzi_value_site_uv">…</span></span></div></section>' +
+      "<section><h2>当前已加</h2>" +
+      '<div class="nbsz-metric"><span class="nbsz-label">访问</span><span class="nbsz-num" id="nbsz-add-pv">' + escapeHtml(String(fakePv)) + "</span></div>" +
+      '<div class="nbsz-metric"><span class="nbsz-label">访客</span><span class="nbsz-num" id="nbsz-add-uv">' + escapeHtml(String(fakeUv)) + "</span></div>" +
+      '<p class="nbsz-break">基数 ' + escapeHtml(String(basePv)) + " / " + escapeHtml(String(baseUv)) + "</p>" +
+      '<p class="nbsz-break">按小时 +<span id="nbsz-hour-pv">' + escapeHtml(String(hourPv)) + "</span> / +<span id=\"nbsz-hour-uv\">" + escapeHtml(String(hourUv)) + "</span></p></section>" +
+      "<section><h2>前台显示</h2>" +
+      '<div class="nbsz-metric"><span class="nbsz-label">访问</span><span class="nbsz-num" id="site-pv-display">' + escapeHtml(String(fakePv)) + "</span></div>" +
+      '<div class="nbsz-metric"><span class="nbsz-label">访客</span><span class="nbsz-num" id="site-uv-display">' + escapeHtml(String(fakeUv)) + "</span></div></section>" +
+      "</div>" +
+      '<p class="nbsz-meta">已加 = 基数 + 按小时累加<br>前台显示 = 真实 + 已加<br>每小时访问 +' +
+      escapeHtml(String(stats.pvPerHour || 0)) +
+      "、访客 +" +
+      escapeHtml(String(stats.uvPerHour || 0)) +
+      " · 已过 " +
+      escapeHtml(hours.toFixed(1)) +
+      " 小时</p>" +
+      '<p class="nbsz-meta">打开本页会计入不蒜子一次真实访问</p></div>';
   }
 
   function telHref(c, fallback) {
@@ -886,6 +932,8 @@
     setMeta("name", "twitter:image", absImage);
     setLinkRel("canonical", pageUrl);
 
+    if (state.page === "nbsz") return;
+
     var store = {
       "@context": "https://schema.org",
       "@type": "FurnitureStore",
@@ -981,7 +1029,8 @@
     custom: renderCustom,
     compare: renderCompare,
     workshop: renderWorkshop,
-    contact: renderContact
+    contact: renderContact,
+    nbsz: renderNbsz
   };
 
   function configUrl() {
@@ -1004,10 +1053,17 @@
     })
     .then(function (cfg) {
       state.config = cfg;
+      applySeo(cfg);
+      if (state.page === "nbsz") {
+        document.body.classList.add("nbsz-only");
+        renderNbsz(cfg);
+        loadBusuanzi(cfg);
+        bindBusuanziOffset(cfg);
+        return;
+      }
       renderHeader(cfg);
       renderFooter(cfg);
       renderMobileBar(cfg);
-      applySeo(cfg);
       if (pages[state.page]) pages[state.page](cfg);
       bindChrome();
     })
