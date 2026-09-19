@@ -253,10 +253,10 @@ p:last-child {
 }
 
 .nav a {
-  padding: 8px 12px;
+  padding: 8px 9px;
   border-radius: 999px;
   color: var(--ink-soft);
-  font-size: 15px;
+  font-size: 14px;
 }
 
 .nav a:hover,
@@ -1178,6 +1178,80 @@ table.woods tr:last-child td {
   font-size: clamp(32px, 5vw, 48px);
 }
 
+.compare-lead {
+  max-width: 720px;
+  margin-bottom: 28px;
+}
+
+.compare-teaser {
+  max-width: 720px;
+}
+
+table.compare-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+table.compare-table th,
+table.compare-table td {
+  padding: 12px 14px;
+  text-align: left;
+  vertical-align: top;
+  border-bottom: 1px solid var(--line);
+  font-size: 14px;
+}
+
+table.compare-table thead th {
+  background: var(--bg-alt);
+  font-weight: 600;
+}
+
+table.compare-table tbody th {
+  width: 18%;
+  color: var(--ink-muted);
+  font-weight: 600;
+}
+
+.compare-cards {
+  display: none;
+}
+
+.compare-split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+}
+
+.compare-points {
+  display: grid;
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.compare-points article,
+.compare-card {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 16px 18px;
+}
+
+.compare-card p {
+  margin: 8px 0 0;
+  font-size: 14px;
+}
+
+.compare-card strong {
+  display: block;
+  margin-bottom: 2px;
+  color: var(--wood-dark);
+  font-size: 12px;
+}
+
 /* Responsive */
 
 @media (max-width: 960px) {
@@ -1190,7 +1264,8 @@ table.woods tr:last-child td {
   .story-grid,
   .contact-grid,
   .legal-grid,
-  .footer-grid {
+  .footer-grid,
+  .compare-split {
     grid-template-columns: 1fr;
   }
 
@@ -1243,8 +1318,14 @@ table.woods tr:last-child td {
     padding: 64px 0;
   }
 
-  table.woods {
+  table.woods,
+  table.compare-table {
     display: none;
+  }
+
+  .compare-cards {
+    display: grid;
+    gap: 14px;
   }
 
   .wood-cards {

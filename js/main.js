@@ -269,6 +269,8 @@
   }
 
   function watermarkBadge() {
+    var site = state.config && state.config.site;
+    if (site && site.watermarkEnabled === false) return "";
     return '<span class="wm">' + watermarkLabel() + "</span>";
   }
 
@@ -374,6 +376,15 @@
       "</div>" +
       '<div class="product-grid">' + featured.map(productCard).join("") + "</div>" +
       '<p style="text-align:center;margin-top:36px"><a class="btn btn-line" href="products.html">查看全部产品</a></p>' +
+      "</div></section>" +
+      '<section class="section"><div class="wrap compare-teaser">' +
+      '<div class="section-head"><p class="eyebrow">COMPARE</p><h2>' +
+      escapeHtml((cfg.comparePage && cfg.comparePage.title) || "和网上大牌比一比") +
+      "</h2><p>" +
+      escapeHtml((cfg.comparePage && cfg.comparePage.subtitle) || "") +
+      "</p></div>" +
+      "<p>" + escapeHtml((cfg.comparePage && cfg.comparePage.lead) || "") + "</p>" +
+      '<p style="margin-top:24px"><a class="btn" href="compare.html">看完整对照</a></p>' +
       "</div></section>" +
       '<section class="section cta-band"><div class="wrap">' +
       "<h2>" + escapeHtml(cfg.homeCta.title) + "</h2>" +
@@ -569,6 +580,59 @@
         if (!open) item.classList.add("is-open");
       });
     });
+  }
+
+  function renderCompare(cfg) {
+    var page = cfg.comparePage || {};
+    var rows = (page.rows || [])
+      .map(function (r) {
+        return (
+          "<tr><th>" + escapeHtml(r.item) + "</th><td>" + escapeHtml(r.us) + "</td><td>" +
+          escapeHtml(r.them) + "</td></tr>"
+        );
+      })
+      .join("");
+    var cards = (page.rows || [])
+      .map(function (r) {
+        return (
+          '<article class="compare-card"><h3>' + escapeHtml(r.item) + "</h3>" +
+          "<p><strong>头木</strong>" + escapeHtml(r.us) + "</p>" +
+          "<p><strong>连锁实木品牌</strong>" + escapeHtml(r.them) + "</p></article>"
+        );
+      })
+      .join("");
+    var pros = (page.pros || [])
+      .map(function (x) {
+        return "<article><h3>" + escapeHtml(x.title) + "</h3><p>" + escapeHtml(x.desc) + "</p></article>";
+      })
+      .join("");
+    var cons = (page.cons || [])
+      .map(function (x) {
+        return "<article><h3>" + escapeHtml(x.title) + "</h3><p>" + escapeHtml(x.desc) + "</p></article>";
+      })
+      .join("");
+
+    $("#main").innerHTML =
+      '<section class="page-hero"><div class="wrap"><p class="eyebrow">COMPARE</p>' +
+      "<h1>" + escapeHtml(page.title || "对照") + "</h1>" +
+      '<p class="muted">' + escapeHtml(page.subtitle || "") + "</p></div></section>" +
+      '<section class="section"><div class="wrap">' +
+      "<p class=\"compare-lead\">" + escapeHtml(page.lead || "") + "</p>" +
+      '<div class="table-wrap"><table class="compare-table"><thead><tr>' +
+      "<th>比什么</th><th>头木木业</th><th>源氏木语等连锁实木</th></tr></thead><tbody>" +
+      rows + "</tbody></table></div>" +
+      '<div class="compare-cards">' + cards + "</div>" +
+      '<p class="woods-note">' + escapeHtml(page.note || "") + "</p></div></section>" +
+      '<section class="section section-alt"><div class="wrap compare-split">' +
+      "<div><h2>" + escapeHtml(page.prosTitle || "") + "</h2><div class=\"compare-points\">" +
+      pros + "</div></div>" +
+      "<div><h2>" + escapeHtml(page.consTitle || "") + "</h2><div class=\"compare-points\">" +
+      cons + "</div></div></div></section>" +
+      '<section class="section cta-band"><div class="wrap">' +
+      "<h2>" + escapeHtml(page.ctaTitle || "") + "</h2>" +
+      "<p>" + escapeHtml(page.ctaText || "") + "</p>" +
+      '<a class="btn" href="' + escapeHtml(page.ctaLink || "contact.html") + '">' +
+      escapeHtml(page.ctaButton || "联系我们") + "</a></div></section>";
   }
 
   function renderWorkshop(cfg) {
@@ -915,6 +979,7 @@
     about: renderAbout,
     products: renderProducts,
     custom: renderCustom,
+    compare: renderCompare,
     workshop: renderWorkshop,
     contact: renderContact
   };
