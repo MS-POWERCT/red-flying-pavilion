@@ -6,15 +6,14 @@
       '<svg class="hl-icon" viewBox="0 0 48 48" fill="none" aria-hidden="true"><circle cx="24" cy="24" r="20" stroke="currentColor" stroke-width="2"/><path d="M24 12v12l8 5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>',
     custom:
       '<svg class="hl-icon" viewBox="0 0 48 48" fill="none" aria-hidden="true"><rect x="8" y="10" width="32" height="28" rx="3" stroke="currentColor" stroke-width="2"/><path d="M14 18h20M14 24h14M14 30h10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>',
-    wood:
-      '<svg class="hl-icon" viewBox="0 0 48 48" fill="none" aria-hidden="true"><ellipse cx="24" cy="24" rx="16" ry="18" stroke="currentColor" stroke-width="2"/><path d="M24 6c6 8 6 28 0 36M16 14c8 4 8 16 0 20M32 14c-8 4-8 16 0 20" stroke="currentColor" stroke-width="1.6"/></svg>',
+    wood: '<svg class="hl-icon" viewBox="0 0 48 48" fill="none" aria-hidden="true"><ellipse cx="24" cy="24" rx="16" ry="18" stroke="currentColor" stroke-width="2"/><path d="M24 6c6 8 6 28 0 36M16 14c8 4 8 16 0 20M32 14c-8 4-8 16 0 20" stroke="currentColor" stroke-width="1.6"/></svg>',
     machine:
-      '<svg class="hl-icon" viewBox="0 0 48 48" fill="none" aria-hidden="true"><rect x="7" y="20" width="34" height="16" rx="2" stroke="currentColor" stroke-width="2"/><path d="M14 20V12h20v8M18 36v4h12v-4" stroke="currentColor" stroke-width="2"/><circle cx="16" cy="28" r="2" fill="currentColor"/><circle cx="24" cy="28" r="2" fill="currentColor"/><circle cx="32" cy="28" r="2" fill="currentColor"/></svg>'
+      '<svg class="hl-icon" viewBox="0 0 48 48" fill="none" aria-hidden="true"><rect x="7" y="20" width="34" height="16" rx="2" stroke="currentColor" stroke-width="2"/><path d="M14 20V12h20v8M18 36v4h12v-4" stroke="currentColor" stroke-width="2"/><circle cx="16" cy="28" r="2" fill="currentColor"/><circle cx="24" cy="28" r="2" fill="currentColor"/><circle cx="32" cy="28" r="2" fill="currentColor"/></svg>',
   };
 
   var state = {
     config: null,
-    page: document.body.getAttribute("data-page") || "home"
+    page: document.body.getAttribute("data-page") || "home",
   };
 
   function $(sel, root) {
@@ -34,7 +33,9 @@
   }
 
   function fileName() {
-    var path = (location.pathname.split("/").pop() || "index.html").toLowerCase();
+    var path = (
+      location.pathname.split("/").pop() || "index.html"
+    ).toLowerCase();
     return path || "index.html";
   }
 
@@ -43,17 +44,35 @@
     var nav = cfg.nav
       .map(function (item) {
         var active = item.href === current ? " is-active" : "";
-        return '<a href="' + item.href + '" class="' + active.trim() + '">' + escapeHtml(item.label) + "</a>";
+        return (
+          '<a href="' +
+          item.href +
+          '" class="' +
+          active.trim() +
+          '">' +
+          escapeHtml(item.label) +
+          "</a>"
+        );
       })
       .join("");
 
     $("#site-header").innerHTML =
       '<div class="wrap header-inner">' +
       '<a class="brand" href="index.html">' +
-      '<img src="' + escapeHtml(cfg.site.logo) + '" alt="' + escapeHtml(cfg.site.name) + '">' +
-      '<span class="brand-text"><span class="brand-name">' + escapeHtml(cfg.site.name) + "</span>" +
-      '<span class="brand-sub">' + escapeHtml(cfg.site.subtitle) + "</span></span></a>" +
-      '<nav class="nav" id="site-nav">' + nav + "</nav>" +
+      '<img src="' +
+      escapeHtml(cfg.site.logo) +
+      '" alt="' +
+      escapeHtml(cfg.site.name) +
+      '">' +
+      '<span class="brand-text"><span class="brand-name">' +
+      escapeHtml(cfg.site.name) +
+      "</span>" +
+      '<span class="brand-sub">' +
+      escapeHtml(cfg.site.subtitle) +
+      "</span></span></a>" +
+      '<nav class="nav" id="site-nav">' +
+      nav +
+      "</nav>" +
       '<button class="menu-toggle" type="button" aria-label="打开菜单" aria-expanded="false"><span></span></button>' +
       "</div>";
   }
@@ -76,13 +95,14 @@
       companyLines += "<span>名称：" + escapeHtml(co.legalName) + "</span>";
     }
     if (co.creditCode) {
-      companyLines += "<span>统一社会信用代码：" + escapeHtml(co.creditCode) + "</span>";
+      companyLines +=
+        "<span>统一社会信用代码：" + escapeHtml(co.creditCode) + "</span>";
     }
     if (co.operator) {
       companyLines += "<span>经营者：" + escapeHtml(co.operator) + "</span>";
     }
 
-    var copyBits = '<span>' + escapeHtml(cfg.site.footer) + "</span>";
+    var copyBits = "<span>" + escapeHtml(cfg.site.footer) + "</span>";
     if (co.icp) {
       copyBits +=
         '<a href="' +
@@ -92,7 +112,10 @@
         "</a>";
     }
     if (cfg.site.originalNote) {
-      copyBits += '<span class="copyright-note">' + escapeHtml(cfg.site.originalNote) + "</span>";
+      copyBits +=
+        '<span class="copyright-note">' +
+        escapeHtml(cfg.site.originalNote) +
+        "</span>";
     }
 
     copyBits += siteStatsHtml(cfg);
@@ -100,16 +123,32 @@
     $("#site-footer").innerHTML =
       '<div class="wrap">' +
       '<div class="footer-grid">' +
-      '<div><div class="brand-name">' + escapeHtml(cfg.site.name) + "</div>" +
-      '<p class="muted footer-sub">' + escapeHtml(cfg.site.subtitle) + "</p></div>" +
-      '<div><h3>页面</h3><div class="footer-nav">' + nav + "</div></div>" +
-      "<div><h3>联系</h3><div class=\"footer-contact\">" +
-      "<span>电话：" + escapeHtml(c.phone) + "</span>" +
-      "<span>微信：" + escapeHtml(c.wechat) + "</span>" +
-      "<span>" + escapeHtml(c.address) + "</span></div></div>" +
-      "<div><h3>公司信息</h3><div class=\"footer-contact\">" + companyLines + "</div></div>" +
+      '<div><div class="brand-name">' +
+      escapeHtml(cfg.site.name) +
       "</div>" +
-      '<div class="copy">' + copyBits + "</div></div>";
+      '<p class="muted footer-sub">' +
+      escapeHtml(cfg.site.subtitle) +
+      "</p></div>" +
+      '<div><h3>页面</h3><div class="footer-nav">' +
+      nav +
+      "</div></div>" +
+      '<div><h3>联系</h3><div class="footer-contact">' +
+      "<span>电话：" +
+      escapeHtml(c.phone) +
+      "</span>" +
+      "<span>微信：" +
+      escapeHtml(c.wechat) +
+      "</span>" +
+      "<span>" +
+      escapeHtml(c.address) +
+      "</span></div></div>" +
+      '<div><h3>公司信息</h3><div class="footer-contact">' +
+      companyLines +
+      "</div></div>" +
+      "</div>" +
+      '<div class="copy">' +
+      copyBits +
+      "</div></div>";
 
     startUptime(cfg);
     loadBusuanzi(cfg);
@@ -129,11 +168,15 @@
   }
 
   function statsFakeExtra(stats, perHourKey) {
-    return Math.floor(statsHoursSinceStart(stats) * statsNumber(stats, perHourKey));
+    return Math.floor(
+      statsHoursSinceStart(stats) * statsNumber(stats, perHourKey),
+    );
   }
 
   function statsDisplayBase(stats, offsetKey, perHourKey) {
-    return Math.floor(statsNumber(stats, offsetKey) + statsFakeExtra(stats, perHourKey));
+    return Math.floor(
+      statsNumber(stats, offsetKey) + statsFakeExtra(stats, perHourKey),
+    );
   }
 
   function parseStartAt(raw) {
@@ -206,7 +249,9 @@
     var s = document.createElement("script");
     s.id = "busuanzi-script";
     s.async = true;
-    s.src = stats.script || "https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js";
+    s.src =
+      stats.script ||
+      "https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js";
     document.body.appendChild(s);
   }
 
@@ -248,8 +293,16 @@
     var srcUv = document.getElementById("busuanzi_value_site_uv");
     if (window.MutationObserver && srcPv && srcUv) {
       var obs = new MutationObserver(paint);
-      obs.observe(srcPv, { childList: true, characterData: true, subtree: true });
-      obs.observe(srcUv, { childList: true, characterData: true, subtree: true });
+      obs.observe(srcPv, {
+        childList: true,
+        characterData: true,
+        subtree: true,
+      });
+      obs.observe(srcUv, {
+        childList: true,
+        characterData: true,
+        subtree: true,
+      });
     }
     var tries = 0;
     var timer = setInterval(function () {
@@ -274,17 +327,33 @@
       '<p class="nbsz-kicker">不蒜子对照</p>' +
       "<h1>访问数据</h1>" +
       '<div class="nbsz-grid nbsz-grid-3">' +
-      '<section><h2>真实</h2>' +
+      "<section><h2>真实</h2>" +
       '<div class="nbsz-metric"><span class="nbsz-label">访问</span><span class="nbsz-num" id="busuanzi_container_site_pv"><span id="busuanzi_value_site_pv">…</span></span></div>' +
       '<div class="nbsz-metric"><span class="nbsz-label">访客</span><span class="nbsz-num" id="busuanzi_container_site_uv"><span id="busuanzi_value_site_uv">…</span></span></div></section>' +
       "<section><h2>当前已加</h2>" +
-      '<div class="nbsz-metric"><span class="nbsz-label">访问</span><span class="nbsz-num" id="nbsz-add-pv">' + escapeHtml(String(fakePv)) + "</span></div>" +
-      '<div class="nbsz-metric"><span class="nbsz-label">访客</span><span class="nbsz-num" id="nbsz-add-uv">' + escapeHtml(String(fakeUv)) + "</span></div>" +
-      '<p class="nbsz-break">基数 ' + escapeHtml(String(basePv)) + " / " + escapeHtml(String(baseUv)) + "</p>" +
-      '<p class="nbsz-break">按小时 +<span id="nbsz-hour-pv">' + escapeHtml(String(hourPv)) + "</span> / +<span id=\"nbsz-hour-uv\">" + escapeHtml(String(hourUv)) + "</span></p></section>" +
+      '<div class="nbsz-metric"><span class="nbsz-label">访问</span><span class="nbsz-num" id="nbsz-add-pv">' +
+      escapeHtml(String(fakePv)) +
+      "</span></div>" +
+      '<div class="nbsz-metric"><span class="nbsz-label">访客</span><span class="nbsz-num" id="nbsz-add-uv">' +
+      escapeHtml(String(fakeUv)) +
+      "</span></div>" +
+      '<p class="nbsz-break">基数 ' +
+      escapeHtml(String(basePv)) +
+      " / " +
+      escapeHtml(String(baseUv)) +
+      "</p>" +
+      '<p class="nbsz-break">按小时 +<span id="nbsz-hour-pv">' +
+      escapeHtml(String(hourPv)) +
+      '</span> / +<span id="nbsz-hour-uv">' +
+      escapeHtml(String(hourUv)) +
+      "</span></p></section>" +
       "<section><h2>前台显示</h2>" +
-      '<div class="nbsz-metric"><span class="nbsz-label">访问</span><span class="nbsz-num" id="site-pv-display">' + escapeHtml(String(fakePv)) + "</span></div>" +
-      '<div class="nbsz-metric"><span class="nbsz-label">访客</span><span class="nbsz-num" id="site-uv-display">' + escapeHtml(String(fakeUv)) + "</span></div></section>" +
+      '<div class="nbsz-metric"><span class="nbsz-label">访问</span><span class="nbsz-num" id="site-pv-display">' +
+      escapeHtml(String(fakePv)) +
+      "</span></div>" +
+      '<div class="nbsz-metric"><span class="nbsz-label">访客</span><span class="nbsz-num" id="site-uv-display">' +
+      escapeHtml(String(fakeUv)) +
+      "</span></div></section>" +
       "</div>" +
       '<p class="nbsz-meta">已加 = 基数 + 按小时累加<br>前台显示 = 真实 + 已加<br>每小时访问 +' +
       escapeHtml(String(stats.pvPerHour || 0)) +
@@ -305,7 +374,9 @@
   function renderMobileBar(cfg) {
     var c = cfg.contact;
     $("#mobile-bar").innerHTML =
-      '<a href="' + telHref(c) + '">电话咨询</a>' +
+      '<a href="' +
+      telHref(c) +
+      '">电话咨询</a>' +
       '<a href="#" data-wechat>微信联系</a>';
   }
 
@@ -335,16 +406,39 @@
 
   function productCard(p) {
     return (
-      '<article class="product-card" data-id="' + escapeHtml(p.id) + '" data-category="' + escapeHtml(p.category) + '">' +
-      '<div class="thumb img-protect"><img src="' + escapeHtml(p.images[0]) + '" alt="' + escapeHtml(p.name) + '" loading="lazy">' +
-      watermarkBadge() + "</div>" +
-      '<div class="body"><h3>' + escapeHtml(p.name) + "</h3>" +
-      '<p class="origin-note">' + escapeHtml(originalMeta(p)) + "</p>" +
-      '<p class="muted">' + escapeHtml(p.desc) + "</p>" +
-      '<div class="product-meta">' +
-      p.woods.map(function (w) { return '<span class="tag">' + escapeHtml(w) + "</span>"; }).join("") +
+      '<article class="product-card" data-id="' +
+      escapeHtml(p.id) +
+      '" data-category="' +
+      escapeHtml(p.category) +
+      '">' +
+      '<div class="thumb img-protect"><img src="' +
+      escapeHtml(p.images[0]) +
+      '" alt="' +
+      escapeHtml(p.name) +
+      '" loading="lazy">' +
+      watermarkBadge() +
       "</div>" +
-      '<p class="muted">尺寸 ' + escapeHtml(p.size) + " · 周期 " + escapeHtml(p.cycle) + "</p>" +
+      '<div class="body"><h3>' +
+      escapeHtml(p.name) +
+      "</h3>" +
+      '<p class="origin-note">' +
+      escapeHtml(originalMeta(p)) +
+      "</p>" +
+      '<p class="muted">' +
+      escapeHtml(p.desc) +
+      "</p>" +
+      '<div class="product-meta">' +
+      p.woods
+        .map(function (w) {
+          return '<span class="tag">' + escapeHtml(w) + "</span>";
+        })
+        .join("") +
+      "</div>" +
+      '<p class="muted">尺寸 ' +
+      escapeHtml(p.size) +
+      " · 周期 " +
+      escapeHtml(p.cycle) +
+      "</p>" +
       "</div></article>"
     );
   }
@@ -353,7 +447,9 @@
     $all(".product-card").forEach(function (card) {
       card.addEventListener("click", function () {
         var id = card.getAttribute("data-id");
-        var p = cfg.products.filter(function (x) { return x.id === id; })[0];
+        var p = cfg.products.filter(function (x) {
+          return x.id === id;
+        })[0];
         if (p) openProduct(p);
       });
     });
@@ -364,21 +460,41 @@
       .map(function (src) {
         return (
           '<div class="detail-shot img-protect">' +
-          '<img src="' + escapeHtml(src) + '" alt="' + escapeHtml(p.name) + '" data-full="' + escapeHtml(src) + '">' +
+          '<img src="' +
+          escapeHtml(src) +
+          '" alt="' +
+          escapeHtml(p.name) +
+          '" data-full="' +
+          escapeHtml(src) +
+          '">' +
           watermarkBadge() +
           "</div>"
         );
       })
       .join("");
     openPanel(
-      "<h2>" + escapeHtml(p.name) + "</h2>" +
-      '<p class="origin-note">' + escapeHtml(originalMeta(p)) + "</p>" +
-      '<div class="detail-images">' + images + "</div>" +
-      "<p>" + escapeHtml(p.desc) + "</p>" +
-      "<p>适用木材：" + escapeHtml(p.woods.join("、")) + "</p>" +
-      "<p>尺寸范围：" + escapeHtml(p.size) + "</p>" +
-      "<p>定制周期：" + escapeHtml(p.cycle) + "</p>" +
-      '<p><a class="btn" href="contact.html">咨询这件定制</a></p>'
+      "<h2>" +
+        escapeHtml(p.name) +
+        "</h2>" +
+        '<p class="origin-note">' +
+        escapeHtml(originalMeta(p)) +
+        "</p>" +
+        '<div class="detail-images">' +
+        images +
+        "</div>" +
+        "<p>" +
+        escapeHtml(p.desc) +
+        "</p>" +
+        "<p>适用木材：" +
+        escapeHtml(p.woods.join("、")) +
+        "</p>" +
+        "<p>尺寸范围：" +
+        escapeHtml(p.size) +
+        "</p>" +
+        "<p>定制周期：" +
+        escapeHtml(p.cycle) +
+        "</p>" +
+        '<p><a class="btn" href="contact.html">咨询这件定制</a></p>',
     );
     var gallery = p.images.map(function (src) {
       return { src: src, alt: p.name };
@@ -393,12 +509,21 @@
 
   function renderHome(cfg) {
     var homeLimit = 3;
-    var featured = cfg.products.filter(function (p) { return p.featured; }).slice(0, homeLimit);
+    var featured = cfg.products
+      .filter(function (p) {
+        return p.featured;
+      })
+      .slice(0, homeLimit);
     var highlights = cfg.highlights
       .map(function (h) {
         return (
-          '<article class="hl-card">' + (ICONS[h.icon] || "") +
-          "<h3>" + escapeHtml(h.title) + "</h3><p>" + escapeHtml(h.desc) + "</p></article>"
+          '<article class="hl-card">' +
+          (ICONS[h.icon] || "") +
+          "<h3>" +
+          escapeHtml(h.title) +
+          "</h3><p>" +
+          escapeHtml(h.desc) +
+          "</p></article>"
         );
       })
       .join("");
@@ -407,35 +532,67 @@
       '<section class="hero"><div class="hero-bg" style="background-image:linear-gradient(180deg,rgba(44,24,16,.32),rgba(44,24,16,.64)),url(\'' +
       escapeHtml(cfg.hero.bgImage) +
       "')\"></div>" +
-      '<div class="wrap hero-inner"><p class="eyebrow">' + escapeHtml(cfg.site.name) + "</p>" +
-      "<h1>" + escapeHtml(cfg.hero.title) + "</h1>" +
-      '<p class="lead">' + escapeHtml(cfg.hero.subtitle) + "</p>" +
-      '<a class="btn" href="' + escapeHtml(cfg.hero.ctaLink) + '">' + escapeHtml(cfg.hero.ctaText) + "</a>" +
+      '<div class="wrap hero-inner"><p class="eyebrow">' +
+      escapeHtml(cfg.site.name) +
+      "</p>" +
+      "<h1>" +
+      escapeHtml(cfg.hero.title) +
+      "</h1>" +
+      '<p class="lead">' +
+      escapeHtml(cfg.hero.subtitle) +
+      "</p>" +
+      '<a class="btn" href="' +
+      escapeHtml(cfg.hero.ctaLink) +
+      '">' +
+      escapeHtml(cfg.hero.ctaText) +
+      "</a>" +
       "</div></section>" +
-      '<section class="section"><div class="wrap"><div class="highlights">' + highlights + "</div></div></section>" +
+      '<section class="section"><div class="wrap"><div class="highlights">' +
+      highlights +
+      "</div></div></section>" +
       '<section class="section section-alt"><div class="wrap">' +
-      '<div class="section-head"><p class="eyebrow">PRODUCTS</p><h2>' + escapeHtml(cfg.homeProducts.title) + "</h2>" +
-      "<p>" + escapeHtml(cfg.homeProducts.subtitle) + "</p>" +
+      '<div class="section-head"><p class="eyebrow">PRODUCTS</p><h2>' +
+      escapeHtml(cfg.homeProducts.title) +
+      "</h2>" +
+      "<p>" +
+      escapeHtml(cfg.homeProducts.subtitle) +
+      "</p>" +
       (cfg.homeProducts.originalNote
-        ? '<p class="origin-note page-origin">' + escapeHtml(cfg.homeProducts.originalNote) + "</p>"
+        ? '<p class="origin-note page-origin">' +
+          escapeHtml(cfg.homeProducts.originalNote) +
+          "</p>"
         : "") +
       "</div>" +
-      '<div class="product-grid">' + featured.map(productCard).join("") + "</div>" +
+      '<div class="product-grid">' +
+      featured.map(productCard).join("") +
+      "</div>" +
       '<p style="text-align:center;margin-top:36px"><a class="btn btn-line" href="products.html">查看全部产品</a></p>' +
       "</div></section>" +
       '<section class="section"><div class="wrap compare-teaser">' +
       '<div class="section-head"><p class="eyebrow">COMPARE</p><h2>' +
-      escapeHtml((cfg.comparePage && cfg.comparePage.title) || "和网上大牌比一比") +
+      escapeHtml(
+        (cfg.comparePage && cfg.comparePage.title) || "和网上大牌比一比",
+      ) +
       "</h2><p>" +
       escapeHtml((cfg.comparePage && cfg.comparePage.subtitle) || "") +
       "</p></div>" +
-      "<p>" + escapeHtml((cfg.comparePage && cfg.comparePage.lead) || "") + "</p>" +
+      "<p>" +
+      escapeHtml((cfg.comparePage && cfg.comparePage.lead) || "") +
+      "</p>" +
       '<p style="margin-top:24px"><a class="btn" href="compare.html">看完整对照</a></p>' +
       "</div></section>" +
       '<section class="section cta-band"><div class="wrap">' +
-      "<h2>" + escapeHtml(cfg.homeCta.title) + "</h2>" +
-      "<p>" + escapeHtml(cfg.homeCta.subtitle) + "</p>" +
-      '<a class="btn" href="' + escapeHtml(cfg.homeCta.link) + '">' + escapeHtml(cfg.homeCta.button) + "</a>" +
+      "<h2>" +
+      escapeHtml(cfg.homeCta.title) +
+      "</h2>" +
+      "<p>" +
+      escapeHtml(cfg.homeCta.subtitle) +
+      "</p>" +
+      '<a class="btn" href="' +
+      escapeHtml(cfg.homeCta.link) +
+      '">' +
+      escapeHtml(cfg.homeCta.button) +
+      "</a>" +
       "</div></section>";
 
     bindProductCards(cfg);
@@ -443,61 +600,130 @@
 
   function renderAbout(cfg) {
     var a = cfg.about;
-    var story = a.story.map(function (p) { return "<p>" + escapeHtml(p) + "</p>"; }).join("");
-    var timeline = a.timeline
-      .map(function (t) {
-        return '<li><div class="year">' + escapeHtml(t.year) + "</div><div>" + escapeHtml(t.event) + "</div></li>";
+    var story = a.story
+      .map(function (p) {
+        return "<p>" + escapeHtml(p) + "</p>";
       })
       .join("");
-    var ph = a.philosophy.paragraphs.map(function (p) { return "<p>" + escapeHtml(p) + "</p>"; }).join("");
+    var timeline = a.timeline
+      .map(function (t) {
+        return (
+          '<li><div class="year">' +
+          escapeHtml(t.year) +
+          "</div><div>" +
+          escapeHtml(t.event) +
+          "</div></li>"
+        );
+      })
+      .join("");
+    var ph = a.philosophy.paragraphs
+      .map(function (p) {
+        return "<p>" + escapeHtml(p) + "</p>";
+      })
+      .join("");
 
     var co = companyOf(cfg);
     var rows = "";
     if (co.legalName) {
-      rows += '<li><span class="label">名称</span>' + escapeHtml(co.legalName) + "</li>";
+      rows +=
+        '<li><span class="label">名称</span>' +
+        escapeHtml(co.legalName) +
+        "</li>";
     }
     if (co.creditCode) {
-      rows += '<li><span class="label">统一社会信用代码</span>' + escapeHtml(co.creditCode) + "</li>";
+      rows +=
+        '<li><span class="label">统一社会信用代码</span>' +
+        escapeHtml(co.creditCode) +
+        "</li>";
     }
     if (co.operator) {
-      rows += '<li><span class="label">经营者</span>' + escapeHtml(co.operator) + "</li>";
+      rows +=
+        '<li><span class="label">经营者</span>' +
+        escapeHtml(co.operator) +
+        "</li>";
     }
-    rows += '<li><span class="label">地址</span>' + escapeHtml(cfg.contact.address) + "</li>";
+    rows +=
+      '<li><span class="label">地址</span>' +
+      escapeHtml(cfg.contact.address) +
+      "</li>";
 
     var license = "";
     if (co.licenseImage) {
       license =
-        '<figure class="license-card" data-full="' + escapeHtml(co.licenseImage) + '">' +
-        '<img src="' + escapeHtml(co.licenseImage) + '" alt="' + escapeHtml(co.licenseCaption || "营业执照") + '">' +
-        "<figcaption>点击查看大图 · " + escapeHtml(co.licenseCaption || "营业执照") + "</figcaption></figure>";
+        '<figure class="license-card" data-full="' +
+        escapeHtml(co.licenseImage) +
+        '">' +
+        '<img src="' +
+        escapeHtml(co.licenseImage) +
+        '" alt="' +
+        escapeHtml(co.licenseCaption || "营业执照") +
+        '">' +
+        "<figcaption>点击查看大图 · " +
+        escapeHtml(co.licenseCaption || "营业执照") +
+        "</figcaption></figure>";
     }
 
     $("#main").innerHTML =
       '<section class="page-hero"><div class="wrap"><p class="eyebrow">ABOUT</p>' +
-      "<h1>" + escapeHtml(a.pageTitle) + "</h1><p class=\"muted\">" + escapeHtml(a.pageSubtitle) + "</p>" +
-      (a.originalNote ? '<p class="origin-note page-origin">' + escapeHtml(a.originalNote) + "</p>" : "") +
+      "<h1>" +
+      escapeHtml(a.pageTitle) +
+      '</h1><p class="muted">' +
+      escapeHtml(a.pageSubtitle) +
+      "</p>" +
+      (a.originalNote
+        ? '<p class="origin-note page-origin">' +
+          escapeHtml(a.originalNote) +
+          "</p>"
+        : "") +
       "</div></section>" +
       '<section class="section"><div class="wrap story-grid">' +
-      '<div class="story-quote">' + escapeHtml(a.intro) + "</div>" +
-      "<div>" + story + "</div></div></section>" +
+      '<div class="story-quote">' +
+      escapeHtml(a.intro) +
+      "</div>" +
+      "<div>" +
+      story +
+      "</div></div></section>" +
       '<section class="section section-alt"><div class="wrap">' +
-      '<div class="section-head"><h2>走过的路</h2><p>' + escapeHtml(a.masterName) + " 的三十年</p></div>" +
-      '<ol class="timeline">' + timeline + "</ol></div></section>" +
+      '<div class="section-head"><h2>走过的路</h2><p>' +
+      escapeHtml(a.masterName) +
+      " 的三十年</p></div>" +
+      '<ol class="timeline">' +
+      timeline +
+      "</ol></div></section>" +
       '<section class="section philosophy"><div class="wrap">' +
-      "<h2>" + escapeHtml(a.philosophy.title) + "</h2>" + ph +
+      "<h2>" +
+      escapeHtml(a.philosophy.title) +
+      "</h2>" +
+      ph +
       "</div></section>" +
       '<section class="section section-alt" id="license"><div class="wrap">' +
-      '<div class="section-head"><h2>' + escapeHtml(co.licenseCaption || "营业执照") + "</h2>" +
-      "<p>" + escapeHtml(co.pageSubtitle || "依法经营，证照可查") + "</p></div>" +
+      '<div class="section-head"><h2>' +
+      escapeHtml(co.licenseCaption || "营业执照") +
+      "</h2>" +
+      "<p>" +
+      escapeHtml(co.pageSubtitle || "依法经营，证照可查") +
+      "</p></div>" +
       '<div class="legal-grid">' +
-      '<div class="contact-card"><ul class="contact-list">' + rows + "</ul>" +
+      '<div class="contact-card"><ul class="contact-list">' +
+      rows +
+      "</ul>" +
       (co.note ? '<p class="muted">' + escapeHtml(co.note) + "</p>" : "") +
-      "</div>" + license + "</div></div></section>";
+      "</div>" +
+      license +
+      "</div></div></section>";
 
     var fig = $(".license-card");
     if (fig) {
       fig.addEventListener("click", function () {
-        openLightbox([{ src: fig.getAttribute("data-full"), alt: co.licenseCaption || "营业执照" }], 0);
+        openLightbox(
+          [
+            {
+              src: fig.getAttribute("data-full"),
+              alt: co.licenseCaption || "营业执照",
+            },
+          ],
+          0,
+        );
       });
     }
     if (location.hash === "#license") {
@@ -511,40 +737,69 @@
       '<button class="filter-btn is-active" type="button" data-filter="all">全部</button>' +
       cfg.productCategories
         .map(function (c) {
-          return '<button class="filter-btn" type="button" data-filter="' + escapeHtml(c.id) + '">' + escapeHtml(c.name) + "</button>";
+          return (
+            '<button class="filter-btn" type="button" data-filter="' +
+            escapeHtml(c.id) +
+            '">' +
+            escapeHtml(c.name) +
+            "</button>"
+          );
         })
         .join("");
     var intros = cfg.productCategories
       .map(function (c) {
-        return '<p class="cat-intro" data-cat="' + escapeHtml(c.id) + '" hidden>' + escapeHtml(c.desc) + "</p>";
+        return (
+          '<p class="cat-intro" data-cat="' +
+          escapeHtml(c.id) +
+          '" hidden>' +
+          escapeHtml(c.desc) +
+          "</p>"
+        );
       })
       .join("");
 
     $("#main").innerHTML =
       '<section class="page-hero"><div class="wrap"><p class="eyebrow">PRODUCTS</p>' +
-      "<h1>" + escapeHtml(cfg.productsPage.title) + "</h1>" +
-      '<p class="muted">' + escapeHtml(cfg.productsPage.subtitle) + "</p>" +
+      "<h1>" +
+      escapeHtml(cfg.productsPage.title) +
+      "</h1>" +
+      '<p class="muted">' +
+      escapeHtml(cfg.productsPage.subtitle) +
+      "</p>" +
       (cfg.productsPage.originalNote
-        ? '<p class="origin-note page-origin">' + escapeHtml(cfg.productsPage.originalNote) + "</p>"
+        ? '<p class="origin-note page-origin">' +
+          escapeHtml(cfg.productsPage.originalNote) +
+          "</p>"
         : "") +
       "</div></section>" +
       '<section class="section"><div class="wrap">' +
-      '<div class="filters">' + filters + "</div>" +
-      '<p class="cat-intro" data-cat="all">' + escapeHtml(cfg.productsPage.subtitle) + "</p>" +
+      '<div class="filters">' +
+      filters +
+      "</div>" +
+      '<p class="cat-intro" data-cat="all">' +
+      escapeHtml(cfg.productsPage.subtitle) +
+      "</p>" +
       intros +
-      '<div class="product-grid">' + cfg.products.map(productCard).join("") + "</div>" +
+      '<div class="product-grid">' +
+      cfg.products.map(productCard).join("") +
+      "</div>" +
       "</div></section>";
 
     bindProductCards(cfg);
     $all(".filter-btn").forEach(function (btn) {
       btn.addEventListener("click", function () {
         var key = btn.getAttribute("data-filter");
-        $all(".filter-btn").forEach(function (b) { b.classList.toggle("is-active", b === btn); });
+        $all(".filter-btn").forEach(function (b) {
+          b.classList.toggle("is-active", b === btn);
+        });
         $all(".cat-intro").forEach(function (el) {
           el.hidden = el.getAttribute("data-cat") !== key;
         });
         $all(".product-card").forEach(function (card) {
-          card.style.display = key === "all" || card.getAttribute("data-category") === key ? "" : "none";
+          card.style.display =
+            key === "all" || card.getAttribute("data-category") === key
+              ? ""
+              : "none";
         });
       });
     });
@@ -554,8 +809,14 @@
     var steps = cfg.customProcess
       .map(function (s) {
         return (
-          '<article class="process-step"><span class="process-num">0' + s.step + "</span>" +
-          "<h3>" + escapeHtml(s.title) + "</h3><p class=\"muted\">" + escapeHtml(s.desc) + "</p></article>"
+          '<article class="process-step"><span class="process-num">0' +
+          s.step +
+          "</span>" +
+          "<h3>" +
+          escapeHtml(s.title) +
+          '</h3><p class="muted">' +
+          escapeHtml(s.desc) +
+          "</p></article>"
         );
       })
       .join("");
@@ -563,13 +824,28 @@
     var rows = cfg.woods
       .map(function (w) {
         var thumb = w.image
-          ? '<img class="wood-thumb" src="' + escapeHtml(w.image) + '" alt="' + escapeHtml(w.name) + '">'
+          ? '<img class="wood-thumb" src="' +
+            escapeHtml(w.image) +
+            '" alt="' +
+            escapeHtml(w.name) +
+            '">'
           : "";
         return (
-          '<tr><td class="wood-name">' + thumb + "<span>" + escapeHtml(w.name) + "</span></td><td>" +
-          escapeHtml(w.trait) + "</td><td>" +
-          escapeHtml(w.color) + "</td><td>" + escapeHtml(w.hardness) + "</td><td>" +
-          escapeHtml(w.price) + "</td><td>" + escapeHtml(w.scene) + "</td></tr>"
+          '<tr><td class="wood-name">' +
+          thumb +
+          "<span>" +
+          escapeHtml(w.name) +
+          "</span></td><td>" +
+          escapeHtml(w.trait) +
+          "</td><td>" +
+          escapeHtml(w.color) +
+          "</td><td>" +
+          escapeHtml(w.hardness) +
+          "</td><td>" +
+          escapeHtml(w.price) +
+          "</td><td>" +
+          escapeHtml(w.scene) +
+          "</td></tr>"
         );
       })
       .join("");
@@ -577,15 +853,33 @@
     var cards = cfg.woods
       .map(function (w) {
         var thumb = w.image
-          ? '<img class="wood-thumb" src="' + escapeHtml(w.image) + '" alt="' + escapeHtml(w.name) + '">'
+          ? '<img class="wood-thumb" src="' +
+            escapeHtml(w.image) +
+            '" alt="' +
+            escapeHtml(w.name) +
+            '">'
           : "";
         return (
-          '<article class="wood-card">' + thumb + "<h3>" + escapeHtml(w.name) + "</h3><dl>" +
-          "<dt>特点</dt><dd>" + escapeHtml(w.trait) + "</dd>" +
-          "<dt>颜色</dt><dd>" + escapeHtml(w.color) + "</dd>" +
-          "<dt>硬度</dt><dd>" + escapeHtml(w.hardness) + "</dd>" +
-          "<dt>价格</dt><dd>" + escapeHtml(w.price) + "</dd>" +
-          "<dt>适合</dt><dd>" + escapeHtml(w.scene) + "</dd></dl></article>"
+          '<article class="wood-card">' +
+          thumb +
+          "<h3>" +
+          escapeHtml(w.name) +
+          "</h3><dl>" +
+          "<dt>特点</dt><dd>" +
+          escapeHtml(w.trait) +
+          "</dd>" +
+          "<dt>颜色</dt><dd>" +
+          escapeHtml(w.color) +
+          "</dd>" +
+          "<dt>硬度</dt><dd>" +
+          escapeHtml(w.hardness) +
+          "</dd>" +
+          "<dt>价格</dt><dd>" +
+          escapeHtml(w.price) +
+          "</dd>" +
+          "<dt>适合</dt><dd>" +
+          escapeHtml(w.scene) +
+          "</dd></dl></article>"
         );
       })
       .join("");
@@ -593,36 +887,58 @@
     var faq = cfg.faq
       .map(function (item, i) {
         return (
-          '<div class="faq-item' + (i === 0 ? " is-open" : "") + '">' +
-          '<button type="button">' + escapeHtml(item.q) + '<span class="mark">+</span></button>' +
-          '<div class="a">' + escapeHtml(item.a) + "</div></div>"
+          '<div class="faq-item' +
+          (i === 0 ? " is-open" : "") +
+          '">' +
+          '<button type="button">' +
+          escapeHtml(item.q) +
+          '<span class="mark">+</span></button>' +
+          '<div class="a">' +
+          escapeHtml(item.a) +
+          "</div></div>"
         );
       })
       .join("");
 
     $("#main").innerHTML =
       '<section class="page-hero"><div class="wrap"><p class="eyebrow">CUSTOM</p>' +
-      "<h1>" + escapeHtml(cfg.customPage.title) + "</h1>" +
-      '<p class="muted">' + escapeHtml(cfg.customPage.subtitle) + "</p></div></section>" +
+      "<h1>" +
+      escapeHtml(cfg.customPage.title) +
+      "</h1>" +
+      '<p class="muted">' +
+      escapeHtml(cfg.customPage.subtitle) +
+      "</p></div></section>" +
       '<section class="section"><div class="wrap">' +
       '<div class="section-head"><h2>定制流程</h2><p>五步把想法做成家具</p></div>' +
-      '<div class="process">' + steps + "</div></div></section>" +
+      '<div class="process">' +
+      steps +
+      "</div></div></section>" +
       '<section class="section section-alt"><div class="wrap">' +
       '<div class="section-head"><h2>木材对比</h2><p>不选最贵的，选最合适的</p></div>' +
       '<div class="table-wrap"><table class="woods"><thead><tr>' +
       "<th>木材</th><th>特点</th><th>颜色</th><th>硬度</th><th>价格区间</th><th>适合场景</th>" +
-      "</tr></thead><tbody>" + rows + "</tbody></table></div>" +
-      '<div class="wood-cards">' + cards + "</div>" +
-      '<p class="woods-note">' + escapeHtml(cfg.woodsNote) + "</p></div></section>" +
+      "</tr></thead><tbody>" +
+      rows +
+      "</tbody></table></div>" +
+      '<div class="wood-cards">' +
+      cards +
+      "</div>" +
+      '<p class="woods-note">' +
+      escapeHtml(cfg.woodsNote) +
+      "</p></div></section>" +
       '<section class="section"><div class="wrap">' +
       '<div class="section-head"><h2>常见问题</h2></div>' +
-      '<div class="faq">' + faq + "</div></div></section>";
+      '<div class="faq">' +
+      faq +
+      "</div></div></section>";
 
     $all(".faq-item button").forEach(function (btn) {
       btn.addEventListener("click", function () {
         var item = btn.parentNode;
         var open = item.classList.contains("is-open");
-        $all(".faq-item").forEach(function (el) { el.classList.remove("is-open"); });
+        $all(".faq-item").forEach(function (el) {
+          el.classList.remove("is-open");
+        });
         if (!open) item.classList.add("is-open");
       });
     });
@@ -633,52 +949,99 @@
     var rows = (page.rows || [])
       .map(function (r) {
         return (
-          "<tr><th>" + escapeHtml(r.item) + "</th><td>" + escapeHtml(r.us) + "</td><td>" +
-          escapeHtml(r.them) + "</td></tr>"
+          "<tr><th>" +
+          escapeHtml(r.item) +
+          "</th><td>" +
+          escapeHtml(r.us) +
+          "</td><td>" +
+          escapeHtml(r.them) +
+          "</td></tr>"
         );
       })
       .join("");
     var cards = (page.rows || [])
       .map(function (r) {
         return (
-          '<article class="compare-card"><h3>' + escapeHtml(r.item) + "</h3>" +
-          "<p><strong>头木</strong>" + escapeHtml(r.us) + "</p>" +
-          "<p><strong>连锁实木品牌</strong>" + escapeHtml(r.them) + "</p></article>"
+          '<article class="compare-card"><h3>' +
+          escapeHtml(r.item) +
+          "</h3>" +
+          "<p><strong>头木</strong>" +
+          escapeHtml(r.us) +
+          "</p>" +
+          "<p><strong>连锁实木品牌</strong>" +
+          escapeHtml(r.them) +
+          "</p></article>"
         );
       })
       .join("");
     var pros = (page.pros || [])
       .map(function (x) {
-        return "<article><h3>" + escapeHtml(x.title) + "</h3><p>" + escapeHtml(x.desc) + "</p></article>";
+        return (
+          "<article><h3>" +
+          escapeHtml(x.title) +
+          "</h3><p>" +
+          escapeHtml(x.desc) +
+          "</p></article>"
+        );
       })
       .join("");
     var cons = (page.cons || [])
       .map(function (x) {
-        return "<article><h3>" + escapeHtml(x.title) + "</h3><p>" + escapeHtml(x.desc) + "</p></article>";
+        return (
+          "<article><h3>" +
+          escapeHtml(x.title) +
+          "</h3><p>" +
+          escapeHtml(x.desc) +
+          "</p></article>"
+        );
       })
       .join("");
 
     $("#main").innerHTML =
       '<section class="page-hero"><div class="wrap"><p class="eyebrow">COMPARE</p>' +
-      "<h1>" + escapeHtml(page.title || "对照") + "</h1>" +
-      '<p class="muted">' + escapeHtml(page.subtitle || "") + "</p></div></section>" +
+      "<h1>" +
+      escapeHtml(page.title || "对照") +
+      "</h1>" +
+      '<p class="muted">' +
+      escapeHtml(page.subtitle || "") +
+      "</p></div></section>" +
       '<section class="section"><div class="wrap">' +
-      "<p class=\"compare-lead\">" + escapeHtml(page.lead || "") + "</p>" +
+      '<p class="compare-lead">' +
+      escapeHtml(page.lead || "") +
+      "</p>" +
       '<div class="table-wrap"><table class="compare-table"><thead><tr>' +
       "<th>比什么</th><th>头木木业</th><th>源氏木语等连锁实木</th></tr></thead><tbody>" +
-      rows + "</tbody></table></div>" +
-      '<div class="compare-cards">' + cards + "</div>" +
-      '<p class="woods-note">' + escapeHtml(page.note || "") + "</p></div></section>" +
+      rows +
+      "</tbody></table></div>" +
+      '<div class="compare-cards">' +
+      cards +
+      "</div>" +
+      '<p class="woods-note">' +
+      escapeHtml(page.note || "") +
+      "</p></div></section>" +
       '<section class="section section-alt"><div class="wrap compare-split">' +
-      "<div><h2>" + escapeHtml(page.prosTitle || "") + "</h2><div class=\"compare-points\">" +
-      pros + "</div></div>" +
-      "<div><h2>" + escapeHtml(page.consTitle || "") + "</h2><div class=\"compare-points\">" +
-      cons + "</div></div></div></section>" +
+      "<div><h2>" +
+      escapeHtml(page.prosTitle || "") +
+      '</h2><div class="compare-points">' +
+      pros +
+      "</div></div>" +
+      "<div><h2>" +
+      escapeHtml(page.consTitle || "") +
+      '</h2><div class="compare-points">' +
+      cons +
+      "</div></div></div></section>" +
       '<section class="section cta-band"><div class="wrap">' +
-      "<h2>" + escapeHtml(page.ctaTitle || "") + "</h2>" +
-      "<p>" + escapeHtml(page.ctaText || "") + "</p>" +
-      '<a class="btn" href="' + escapeHtml(page.ctaLink || "contact.html") + '">' +
-      escapeHtml(page.ctaButton || "联系我们") + "</a></div></section>";
+      "<h2>" +
+      escapeHtml(page.ctaTitle || "") +
+      "</h2>" +
+      "<p>" +
+      escapeHtml(page.ctaText || "") +
+      "</p>" +
+      '<a class="btn" href="' +
+      escapeHtml(page.ctaLink || "contact.html") +
+      '">' +
+      escapeHtml(page.ctaButton || "联系我们") +
+      "</a></div></section>";
   }
 
   function renderWorkshop(cfg) {
@@ -686,47 +1049,84 @@
       '<button class="filter-btn is-active" type="button" data-filter="all">全部</button>' +
       cfg.galleryCategories
         .map(function (c) {
-          return '<button class="filter-btn" type="button" data-filter="' + escapeHtml(c.id) + '">' + escapeHtml(c.name) + "</button>";
+          return (
+            '<button class="filter-btn" type="button" data-filter="' +
+            escapeHtml(c.id) +
+            '">' +
+            escapeHtml(c.name) +
+            "</button>"
+          );
         })
         .join("");
 
     var items = cfg.gallery
       .map(function (g) {
         return (
-          '<figure class="gallery-item" data-category="' + escapeHtml(g.category) + '" data-full="' + escapeHtml(g.src) + '">' +
-          '<div class="shot img-protect"><img src="' + escapeHtml(g.src) + '" alt="' + escapeHtml(g.alt) + '" loading="lazy">' +
-          watermarkBadge() + "</div>" +
-          "<figcaption>" + escapeHtml(g.caption) + "</figcaption></figure>"
+          '<figure class="gallery-item" data-category="' +
+          escapeHtml(g.category) +
+          '" data-full="' +
+          escapeHtml(g.src) +
+          '">' +
+          '<div class="shot img-protect"><img src="' +
+          escapeHtml(g.src) +
+          '" alt="' +
+          escapeHtml(g.alt) +
+          '" loading="lazy">' +
+          watermarkBadge() +
+          "</div>" +
+          "<figcaption>" +
+          escapeHtml(g.caption) +
+          "</figcaption></figure>"
         );
       })
       .join("");
 
     $("#main").innerHTML =
       '<section class="page-hero"><div class="wrap"><p class="eyebrow">WORKSHOP</p>' +
-      "<h1>" + escapeHtml(cfg.workshopPage.title) + "</h1>" +
-      '<p class="muted">' + escapeHtml(cfg.workshopPage.subtitle) + "</p>" +
+      "<h1>" +
+      escapeHtml(cfg.workshopPage.title) +
+      "</h1>" +
+      '<p class="muted">' +
+      escapeHtml(cfg.workshopPage.subtitle) +
+      "</p>" +
       (cfg.workshopPage.originalNote
-        ? '<p class="origin-note page-origin">' + escapeHtml(cfg.workshopPage.originalNote) + "</p>"
+        ? '<p class="origin-note page-origin">' +
+          escapeHtml(cfg.workshopPage.originalNote) +
+          "</p>"
         : "") +
       "</div></section>" +
       '<section class="section"><div class="wrap">' +
-      '<div class="filters">' + filters + "</div>" +
-      '<div class="gallery">' + items + "</div></div></section>" +
-      '<section class="section cta-band"><div class="wrap"><p>' + escapeHtml(cfg.workshopPage.closing) + "</p>" +
+      '<div class="filters">' +
+      filters +
+      "</div>" +
+      '<div class="gallery">' +
+      items +
+      "</div></div></section>" +
+      '<section class="section cta-band"><div class="wrap"><p>' +
+      escapeHtml(cfg.workshopPage.closing) +
+      "</p>" +
       '<a class="btn" href="contact.html">联系定制</a></div></section>';
 
     $all(".gallery-item").forEach(function (fig) {
       fig.addEventListener("click", function () {
-        openLightbox([{ src: fig.getAttribute("data-full"), alt: $("img", fig).alt }], 0);
+        openLightbox(
+          [{ src: fig.getAttribute("data-full"), alt: $("img", fig).alt }],
+          0,
+        );
       });
     });
 
     $all(".filter-btn").forEach(function (btn) {
       btn.addEventListener("click", function () {
         var key = btn.getAttribute("data-filter");
-        $all(".filter-btn").forEach(function (b) { b.classList.toggle("is-active", b === btn); });
+        $all(".filter-btn").forEach(function (b) {
+          b.classList.toggle("is-active", b === btn);
+        });
         $all(".gallery-item").forEach(function (item) {
-          item.style.display = key === "all" || item.getAttribute("data-category") === key ? "" : "none";
+          item.style.display =
+            key === "all" || item.getAttribute("data-category") === key
+              ? ""
+              : "none";
         });
       });
     });
@@ -741,22 +1141,44 @@
 
     main.innerHTML =
       '<section class="page-hero"><div class="wrap"><p class="eyebrow">CONTACT</p>' +
-      "<h1>" + escapeHtml(c.pageTitle) + "</h1>" +
-      '<p class="muted">' + escapeHtml(c.pageSubtitle) + "</p></div></section>" +
+      "<h1>" +
+      escapeHtml(c.pageTitle) +
+      "</h1>" +
+      '<p class="muted">' +
+      escapeHtml(c.pageSubtitle) +
+      "</p></div></section>" +
       '<section class="section"><div class="wrap contact-grid">' +
       '<div class="contact-card"><ul class="contact-list">' +
-      '<li><span class="label">电话</span><a class="contact-phone" href="' + escapeHtml(tel) + '">' + escapeHtml(c.phone) + "</a></li>" +
-      '<li><span class="label">微信</span>' + escapeHtml(c.wechat) + "</li>" +
-      '<li><span class="label">地址</span>' + escapeHtml(c.address) + "</li>" +
-      '<li><span class="label">工作时间</span>' + escapeHtml(c.hours) + "</li>" +
-      "</ul><p class=\"muted\">来之前最好先打个电话或发微信，避免空跑。</p>" +
-      '<p class="contact-actions"><a class="btn" href="' + escapeHtml(tel) + '">拨打电话</a></p></div>' +
+      '<li><span class="label">电话</span><a class="contact-phone" href="' +
+      escapeHtml(tel) +
+      '">' +
+      escapeHtml(c.phone) +
+      "</a></li>" +
+      '<li><span class="label">微信</span>' +
+      escapeHtml(c.wechat) +
+      "</li>" +
+      '<li><span class="label">地址</span>' +
+      escapeHtml(c.address) +
+      "</li>" +
+      '<li><span class="label">工作时间</span>' +
+      escapeHtml(c.hours) +
+      "</li>" +
+      '</ul><p class="muted">来之前最好先打个电话或发微信，避免空跑。</p>' +
+      '<p class="contact-actions"><a class="btn" href="' +
+      escapeHtml(tel) +
+      '">拨打电话</a></p></div>' +
       '<div class="contact-card wechat-side">' +
       '<span class="label">微信二维码</span>' +
-      '<img src="' + escapeHtml(c.wechatQr) + '" alt="微信二维码">' +
-      "<p>" + escapeHtml(c.wechat) + "</p>" +
+      '<img src="' +
+      escapeHtml(c.wechatQr) +
+      '" alt="微信二维码">' +
+      "<p>" +
+      escapeHtml(c.wechat) +
+      "</p>" +
       '<p class="muted">添加时请备注「家具定制」</p></div></div>' +
-      '<p class="closing">' + escapeHtml(c.closing) + "</p></section>";
+      '<p class="closing">' +
+      escapeHtml(c.closing) +
+      "</p></section>";
   }
 
   function ensureOverlay() {
@@ -765,7 +1187,8 @@
     el = document.createElement("div");
     el.id = "overlay";
     el.className = "overlay";
-    el.innerHTML = '<button class="close" type="button" aria-label="关闭">×</button><div class="overlay-body"></div>';
+    el.innerHTML =
+      '<button class="close" type="button" aria-label="关闭">×</button><div class="overlay-body"></div>';
     document.body.appendChild(el);
     el.addEventListener("click", function (e) {
       if (e.target === el) closeOverlay();
@@ -790,7 +1213,8 @@
       '<p class="lightbox-count"></p>';
     document.body.appendChild(el);
     el.addEventListener("click", function (e) {
-      if (e.target === el || e.target.classList.contains("lightbox-body")) closeLightbox();
+      if (e.target === el || e.target.classList.contains("lightbox-body"))
+        closeLightbox();
     });
     $(".close", el).addEventListener("click", function (e) {
       e.stopPropagation();
@@ -818,10 +1242,15 @@
     var item = items[lightbox.index] || { src: "", alt: "" };
     $(".lightbox-body", el).innerHTML =
       '<div class="img-protect">' +
-      '<img src="' + escapeHtml(item.src) + '" alt="' + escapeHtml(item.alt || "") + '">' +
+      '<img src="' +
+      escapeHtml(item.src) +
+      '" alt="' +
+      escapeHtml(item.alt || "") +
+      '">' +
       watermarkBadge() +
       "</div>";
-    $(".lightbox-count", el).textContent = items.length > 1 ? lightbox.index + 1 + " / " + items.length : "";
+    $(".lightbox-count", el).textContent =
+      items.length > 1 ? lightbox.index + 1 + " / " + items.length : "";
     el.classList.toggle("has-nav", items.length > 1);
     el.classList.add("is-open");
   }
@@ -890,13 +1319,17 @@
       if (!t) return;
       e.preventDefault();
       var c = (state.config && state.config.contact) || {
-        wechat: "abc17779323886",
-        wechatQr: "images/contact/wechat-qr.png"
+        wechat: "Valar_Morghulis426",
+        wechatQr: "images/contact/wechat-qr.png",
       };
       openPanel(
-        '<div class="wechat-box"><h2>微信联系</h2><p>' + escapeHtml(c.wechat) + "</p>" +
-        '<img src="' + escapeHtml(c.wechatQr) + '" alt="微信二维码">' +
-        "<p class=\"muted\">添加时请备注「家具定制」</p></div>"
+        '<div class="wechat-box"><h2>微信联系</h2><p>' +
+          escapeHtml(c.wechat) +
+          "</p>" +
+          '<img src="' +
+          escapeHtml(c.wechatQr) +
+          '" alt="微信二维码">' +
+          '<p class="muted">添加时请备注「家具定制」</p></div>',
       );
     });
   }
@@ -905,7 +1338,7 @@
     var seoAll = cfg.seo || {};
     var pageSeo = seoAll[state.page] || {};
     var name = cfg.site.name;
-    var title = pageSeo.title || (name + " · " + (cfg.site.subtitle || ""));
+    var title = pageSeo.title || name + " · " + (cfg.site.subtitle || "");
     var desc = pageSeo.description || cfg.site.description || "";
     var image = pageSeo.image || cfg.hero.bgImage || cfg.site.logo;
     var robots = pageSeo.robots || "index, follow";
@@ -938,7 +1371,8 @@
       "@context": "https://schema.org",
       "@type": "FurnitureStore",
       name: name,
-      alternateName: cfg.company && cfg.company.legalName ? cfg.company.legalName : name,
+      alternateName:
+        cfg.company && cfg.company.legalName ? cfg.company.legalName : name,
       description: cfg.site.description,
       image: absUrl(cfg, cfg.site.logo),
       telephone: cfg.contact.phone,
@@ -946,7 +1380,7 @@
       address: {
         "@type": "PostalAddress",
         streetAddress: cfg.contact.address,
-        addressCountry: "CN"
+        addressCountry: "CN",
       },
       openingHours: "Mo-Su 07:00-20:00",
       areaServed: "CN",
@@ -955,9 +1389,9 @@
         itemOffered: {
           "@type": "Service",
           name: "实木家具来图定制",
-          description: cfg.customPage.subtitle
-        }
-      }
+          description: cfg.customPage.subtitle,
+        },
+      },
     };
     setJsonLd("ld-business", store);
 
@@ -969,9 +1403,9 @@
           return {
             "@type": "Question",
             name: item.q,
-            acceptedAnswer: { "@type": "Answer", text: item.a }
+            acceptedAnswer: { "@type": "Answer", text: item.a },
           };
-        })
+        }),
       });
     }
   }
@@ -990,7 +1424,10 @@
 
   function setMeta(attr, key, value) {
     if (value == null || value === "") return;
-    var sel = attr === "property" ? 'meta[property="' + key + '"]' : 'meta[name="' + key + '"]';
+    var sel =
+      attr === "property"
+        ? 'meta[property="' + key + '"]'
+        : 'meta[name="' + key + '"]';
     var el = $(sel);
     if (!el) {
       el = document.createElement("meta");
@@ -1030,7 +1467,7 @@
     compare: renderCompare,
     workshop: renderWorkshop,
     contact: renderContact,
-    nbsz: renderNbsz
+    nbsz: renderNbsz,
   };
 
   function configUrl() {

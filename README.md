@@ -26,7 +26,7 @@ python3 -m http.server 8080
 | `woods`                                | 木材对比表                               |
 | `gallery`                              | 工厂实拍                                 |
 | `contact.phone` / `wechat` / `address` | 联系方式                                 |
-| `contact.phoneHref`                    | 如 `tel:17779323886`，手机可直接拨号     |
+| `contact.phoneHref`                    | 如 `tel:15270515690`，手机可直接拨号     |
 
 ## 换图片
 
@@ -45,6 +45,8 @@ python3 -m http.server 8080
 3. 如需自定义域名，在 Pages 项目里绑定即可
 
 ## 待你补充
+
+详细问题清单见 [`research/待确认问题.md`](research/待确认问题.md)（牌子、报价、交期、对照页、上线等）。
 
 - 品牌名是否改用师傅姓名或其他字号（当前暂用「头木木业」）
 - 产品与工厂实拍照片、Logo、微信二维码

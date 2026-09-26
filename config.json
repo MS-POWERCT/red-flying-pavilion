@@ -16,8 +16,8 @@
     "startAt": "2026-09-01 00:00:00",
     "busuanzi": true,
     "script": "https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js",
-    "pvOffset": 5280,
-    "uvOffset": 1860,
+    "pvOffset": 2280,
+    "uvOffset": 560,
     "pvPerHour": 3,
     "uvPerHour": 1.2,
     "secretFile": "nbsz-9f2a.html"
@@ -627,9 +627,9 @@
   "contact": {
     "pageTitle": "联系我们",
     "pageSubtitle": "有想法？随时联系，把方案发过来聊聊",
-    "phone": "17779323886",
-    "phoneHref": "tel:17779323886",
-    "wechat": "abc17779323886",
+    "phone": "15270515690",
+    "phoneHref": "tel:15270515690",
+    "wechat": "Valar_Morghulis426",
     "wechatQr": "images/contact/wechat-qr.png",
     "address": "江西省上饶市广丰县桐畈镇下社村石塔底2号",
     "hours": "每天 7:00 - 20:00（来之前最好电话联系）",
@@ -700,7 +700,7 @@
     },
     "contact": {
       "title": "联系我们 · 头木木业",
-      "description": "咨询实木定制：电话 17779323886，微信 abc17779323886。地址江西省上饶市广丰县桐畈镇下社村石塔底2号，每天 7:00-20:00。",
+      "description": "咨询实木定制：电话 15270515690，微信 Valar_Morghulis426。地址江西省上饶市广丰县桐畈镇下社村石塔底2号，每天 7:00-20:00。",
       "image": "images/hero/hero-bg.png"
     },
     "nbsz": {
